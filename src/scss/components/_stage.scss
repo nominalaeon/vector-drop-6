@@ -1,0 +1,34 @@
+
+.vd6-stage {
+  border: 0;
+}
+
+.vd6-stage__filler {
+  fill: rgba($color__red, 1);
+}
+
+.vd6-stage__grid-line {
+  stroke-width: $stroke__width / 3;
+}
+.vd6-stage__grid-line--cir {
+  stroke: rgba($color__black, 0.2);
+}
+.vd6-stage__grid-line--diag {
+  stroke: rgba($color__black, 0.16);
+}
+.vd6-stage__grid-line--hor {
+  stroke: rgba($color__black, 0.16);
+}
+.vd6-stage__grid-line--ver {
+  stroke: rgba($color__black, 0.2);
+}
+
+.vd6-stage__ring {
+  fill: transparent;
+  stroke: rgba($color__blue, 0.15);
+}
+
+.vd6-stage__slice {
+  fill: rgba($color__red, 0.25);
+  stroke-width: 0;
+}

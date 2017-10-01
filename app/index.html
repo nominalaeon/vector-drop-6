@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>VectorDrop 6</title>
+
+  <meta http-equiv="X-UA-Compatible" content=" IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link href='assets/css/vd6.css' rel='stylesheet' type='text/css' >
+
+</head>
+
+<body class="transition-disabler" ng-cloak>
+
+  <div class="vector-drop-6 vd6">
+    <div class="vd6-frame">
+      
+      <svg class="vd6-stage"
+        preserveAspectRatio="xMidYMid slice"
+        :viewbox="'0 0 ' + width + ' ' + height"
+        :width="width" :height="height">
+        
+        <path v-for="gridLine in gridLines"
+          :class="gridLine.className"
+          :d="gridLine.d" />
+
+        <g v-for="ring in rings"
+          :class="ring.className"
+          :id="ring.id">
+          <circle class="vd6-stage__ring vd6-stage__ring--outer"
+            :cx="ring.center.x"
+            :cy="ring.center.y"
+            :r="ring.rad2" />
+          <circle class="vd6-stage__ring vd6-stage__ring--inner"
+            :cx="ring.center.x"
+            :cy="ring.center.y"
+            :r="ring.rad1" />
+        </g>
+
+        <path v-for="slice in slices"
+          :id="slice.id"
+          :class="slice.className"
+          :d="slice.d" />
+
+      </svg>
+
+      <svg class="vd6-victor"
+        preserveAspectRatio="xMidYMid slice"
+        :viewbox="'0 0 ' + width + ' ' + height"
+        :width="width" :height="height">
+        
+        <path v-for="limb in limbs"
+          :id="limb.id"
+          :class="limb.className"
+          :d="limb.d" />
+        <use v-for="limb in limbs" :href="'default-' + limb.id" />
+
+        <defs>
+          <g v-for="limb in limbs">
+            <path v-for="(data, state) in limb.state"
+              :id="state + '-' + limb.id"
+              :class="limb.className"
+              :d="data" />
+          </g>
+        </defs>
+
+      </svg>
+      
+    </div>
+  </div>
+
+  <!-- Plug-ins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer-time/1.1.0/hammer-time.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+  <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TimelineMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <script src="assets/gsap/gsap.min.js" type="text/javascript" charset="utf-8"></script>
+  
+  <!-- AppJS -->
+  <script src="assets/js/vd6.min.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>

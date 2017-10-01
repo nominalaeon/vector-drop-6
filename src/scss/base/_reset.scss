@@ -1,0 +1,21 @@
+
+body {
+  overflow: hidden;
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+svg {
+  border: 1px solid pink;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+path {
+  fill: transparent;
+  stroke: rgba($color__blue, 0.5);
+  stroke-width: $stroke__width;
+}

@@ -1,0 +1,16 @@
+
+.vd6 {
+  display: inline-block;
+  position: relative;
+}
+
+.vd6-frame {
+  background: rgba($color__black, 0.05);
+  border: 1px solid teal;
+  height: $app__size;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: auto;
+}
