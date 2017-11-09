@@ -19,6 +19,7 @@ import browserify   from 'browserify';
 import browserSync  from 'browser-sync';
 import buffer       from 'vinyl-buffer';
 import source       from 'vinyl-source-stream';
+import vueify       from 'vueify';
 import watchify     from 'watchify';
 
 var root = {
@@ -48,14 +49,14 @@ var options = {
   ],
   browserSync: {
     files: [app + '**'],
-    port: 9000,
+    port: 1803,
     server: {
       baseDir: root.app
     }
   },
   connect: {
     root: root.app,
-    port: 9000
+    port: 1803
   },
   header: [
     '/**',
@@ -96,7 +97,8 @@ gulp.task('default', ['concat:gsap', 'css', 'connect', 'watch']);
 function compile(watch) {
   var bundler = watchify(browserify(`${src.js}app.js`, {
     debug: true
-  }).transform(babelify, {
+  }).transform(vueify, {
+  // }).transform(babelify, {
     // Use all of the ES2015 spec
     presets: [
       ["es2015", {
@@ -106,7 +108,7 @@ function compile(watch) {
       }]
     ],
     sourceMaps: true
-  }));
+  }).transform(babelify));
 
   if (!watch) {
     rebundle().pipe(exit());
@@ -183,7 +185,9 @@ function css() {
 
 function watch() {
   gulp.watch(root.app + '*.html').on('change', browserSync.reload);
+  gulp.watch(src.js + '**/*.html').on('change', browserSync.reload);
   gulp.watch(src.js + '**/*.js').on('change', browserSync.reload);
+  gulp.watch(src.js + '**/*.vue').on('change', browserSync.reload);
   gulp.watch(src.scss + '**/*.scss').on('change', css, browserSync.reload);
 
   return compile(true);

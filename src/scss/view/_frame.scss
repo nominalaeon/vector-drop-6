@@ -1,0 +1,7 @@
+
+.vd6-frame {
+  @include size($app__width, $app__height);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

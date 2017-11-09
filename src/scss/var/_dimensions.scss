@@ -1,0 +1,19 @@
+
+$app__height: 100vh;
+$app__width: 100vw;
+
+$app__column: $app__width / 9;
+
+$app__margin: $app__column * 2;
+
+/**
+ * Borders
+ */
+
+$border__width: $app__height * 0.01;
+
+/**
+ * Fonts
+ */
+
+$font__size: calc(8px + (#{$app__height} * .01));

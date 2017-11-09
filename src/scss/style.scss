@@ -1,10 +1,14 @@
 
-@import 'vars/colors';
-@import 'vars/layout';
+@import 'var/colors';
+@import 'var/dimensions';
 
 @import 'base/reset';
 @import 'base/utils';
 
-@import 'components/frame';
-@import 'components/stage';
-@import 'components/victor';
+@import 'mixin/sizing';
+
+@import 'view/container';
+@import 'view/frame';
+
+@import 'component/player-display';
+@import 'component/title-card';
