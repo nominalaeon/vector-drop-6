@@ -1,0 +1,16 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+.vd6-title-card__svg {
+  border: 1px solid rgba($color__red, 0.2);
+}
+.vd6-title-card__path--fill {
+  fill: rgba($color__yellow, 0.8);
+  opacity:  0;
+}
+.vd6-title-card__path--stroke {
+  fill: transparent;
+  stroke: rgba($color__green, 0.8);
+  stroke-width: $border__width;
+}

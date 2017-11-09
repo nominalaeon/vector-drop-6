@@ -2,13 +2,12 @@
 import Vue        from 'vue';
 import Component  from 'vue-class-component';
 
-import cLink      from '../link/c-link.vue';
 import cTitleCard from '../title-card/c-title-card.vue';
 import * as T     from '../../types/common';
 
 @Component({
+  name: 'StartComponent',
   components: {
-    cLink: cLink,
     cTitleCard: cTitleCard
   }
 })

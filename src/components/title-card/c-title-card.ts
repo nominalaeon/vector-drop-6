@@ -1,25 +1,20 @@
 
-import * as DrawSVG   from '../_vendor/gsap/DrawSVGPlugin';
-import * as GSAP from 'gsap';
-import Vue       from 'vue';
-import Component from 'vue-class-component';
+// import { TimelineLite } from 'gsap';
+// import * as DrawSVG     from '../_vendor/gsap/DrawSVGPlugin.js';
+import Vue              from 'vue';
+import Component        from 'vue-class-component';
 
 import * as T    from '../../types/common';
-// import * as TG   from '../../types/gsap';
 
 @Component({
   name: 'TitleCardComponent',
   props: {
-    height: Number,
-    width: Number
+    height: String,
+    width: String
   }
 })
 
 class TitleCard extends Vue {
-  dimension: T.Dimension = {
-    height: 100,
-    width: 100
-  };
   fill: HTMLElement;
   points: String = 'm20,20 l60,0 l0,60 l-60,0 l0,-60';
   stroke: HTMLElement;
@@ -35,11 +30,11 @@ class TitleCard extends Vue {
    */
   
   animate() {
-    var trace         = new GSAP.TimelineLite({ repeat: 0 });
-    var trace_dur     = 6;
-    var trace_pos     = `-=${trace_dur / 2}`;
-    var trace_dur_col = 1.5;
-    var trace_pos_col = `-=${trace_dur}`;
+    var trace     = new TimelineLite({ repeat: 0 });
+    var trace_dur = 6;
+    var trace_pos = `-=${trace_dur / 2}`;
+    var fill_dur  = 1.5;
+    var fill_pos  = `-=${trace_dur}`;
 
     var configRoughEase = <RoughEaseConfig> {
       clamp: false,
@@ -47,7 +42,7 @@ class TitleCard extends Vue {
       randomize: true,
       strength: 2,
       taper: 'none',
-      template: GSAP.Circ.easeIn
+      template: Circ.easeIn
     };
 
     console.log('onMounted', this);
@@ -57,16 +52,16 @@ class TitleCard extends Vue {
         drawSVG: '0% 0%'
       }, {
         drawSVG: '0% 100%',
-        ease: GSAP.Expo.easeInOut
+        ease: Expo.easeInOut
       }, trace_pos)
       .to(this.stroke, trace_dur, {
         drawSVG: '100% 100%',
-        ease: GSAP.Expo.easeOut
+        ease: Expo.easeOut
       }, trace_pos)
-      .to(this.fill, trace_dur_col, {
+      .to(this.fill, fill_dur, {
         opacity: '1',
-        ease: GSAP.RoughEase.bind(configRoughEase).ease
-      }, trace_pos_col);
+        ease: RoughEase.ease.config(configRoughEase)
+      }, fill_pos);
   }
 
   selectElements() {
