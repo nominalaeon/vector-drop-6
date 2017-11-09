@@ -1,1 +1,1 @@
-# vector-drop-6
+# Vector Drop 6

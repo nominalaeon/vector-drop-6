@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.promise"
+    ],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "paths":{
+      "@router/*": ["./src/router/*"],
+      "@store/*": ["./src/store/*"],
+      "@types/*": ["./src/types/*"],
+      "@components/*": ["./src/components/*"]
+    },
+    "strict": true,
+    "types": [
+      "greensock"
+    ],
+
+    "experimentalDecorators": true,
+    "noImplicitThis": false,
+  },
+  "include": [
+    "./src/**/*.ts"
+  ]
+}

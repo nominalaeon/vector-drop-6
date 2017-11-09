@@ -1,8 +1,0 @@
-
-.vd6-container {
-  @include size($app__width, $app__height);
-  background-color: rgba(gray, 0.1);
-  position: relative;
-  // No margin or padding here, this is a full-sized relative container.
-  // If a child needs alignment, it should handle it
-}
