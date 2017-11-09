@@ -8,7 +8,7 @@ app/assets/vendor
 app/templates
 app/video
 app/assets/video/
-src/vendor
+src/components/_vendor
 
 ## Node.js
 lib-cov
