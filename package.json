@@ -9,9 +9,6 @@
   ],
   "description": "",
   "dependencies": {
-    "@types/greensock": "^1.15.32",
-    "@types/gsap": "^1.19.1",
-    "gsap": "^1.20.3",
     "vue": "^2.5.2",
     "vue-class-component": "^6.0.0",
     "vue-router": "^3.0.1",
@@ -81,6 +78,7 @@
     "typescript": "^2.5.3",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.0.4",
+    "vue-property-decorator": "^6.0.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.4.2",
     "webpack": "^3.6.0",

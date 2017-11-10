@@ -1,0 +1,12 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-start {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

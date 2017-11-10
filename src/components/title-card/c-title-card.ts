@@ -1,29 +1,31 @@
 
-// import { TimelineLite } from 'gsap';
-// import * as DrawSVG     from '../_vendor/gsap/DrawSVGPlugin.js';
-import Vue              from 'vue';
-import Component        from 'vue-class-component';
+import Vue        from 'vue';
+import Component  from 'vue-class-component';
+import { Watch }  from 'vue-property-decorator';
 
-import * as T    from '../../types/common';
+import * as T     from '../../types/common';
+import * as TC    from './i-title-card';
 
 @Component({
   name: 'TitleCardComponent',
   props: {
-    height: String,
-    width: String
+    height: Number,
+    width: Number
   }
 })
 
 class TitleCard extends Vue {
   fill: HTMLElement;
-  points: String = 'm20,20 l60,0 l0,60 l-60,0 l0,-60';
+  points: String = 'm20,20 l160,0 l0,60 l-160,0 l0,-60';
   stroke: HTMLElement;
 
   mounted() {
     this.selectElements();
-    console.log('TitleCard onMounted', this);
+
+    console.info('TitleCard initialized', this);
+
     this.animate();
-  };
+  }
 
   /**
    * General methods
@@ -44,8 +46,6 @@ class TitleCard extends Vue {
       taper: 'none',
       template: Circ.easeIn
     };
-
-    console.log('onMounted', this);
 
     trace
       .fromTo(this.stroke, trace_dur, {

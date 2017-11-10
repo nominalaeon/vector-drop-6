@@ -17,9 +17,7 @@
     },
     "strict": true,
     "target": "es5",
-    "types": [
-      "greensock"
-    ],
+    "types": [],
 
     "experimentalDecorators": true,
     "noImplicitThis": false

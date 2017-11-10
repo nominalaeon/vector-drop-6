@@ -16,4 +16,11 @@ $border__width: $app__height * 0.01;
  * Fonts
  */
 
-$font__size: calc(8px + (#{$app__height} * .01));
+$font__size: calc(10px + (#{$app__height} * .01));
+
+/**
+ * Title Card
+ */
+
+$title-card__height: $app__height * .50;
+$title-card__width: $app__width;

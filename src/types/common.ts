@@ -5,6 +5,6 @@ export interface Dimension {
 };
 
 export interface Link {
-  description?: String
+  description?: String,
   url: String
 };

@@ -7,7 +7,7 @@ import cScoreBoard from './components/score-board/c-score-board.vue';
 @Component({
   name: 'VD6',
   components: {
-    cScoreBoard: cScoreBoard
+    'score-board': cScoreBoard
   }
 })
 

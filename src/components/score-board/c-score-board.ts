@@ -21,7 +21,6 @@ class ScoreBoard extends Vue {
   score: Number = 0;
 
   get hiScore() {
-    console.log('get hiScore', this);
     return this.vm.hiScore > this.score ? this.vm.hiScore : this.score;
   }
   set hiScore(hiScore) {
@@ -30,7 +29,7 @@ class ScoreBoard extends Vue {
   }
 
   mounted() {
-    
+    console.info('ScoreCard initialized', this);
   };
 
   /**
