@@ -1,8 +1,10 @@
 
-import Vue        from 'vue';
-import Component  from 'vue-class-component';
+import Vue          from 'vue';
+import Component    from 'vue-class-component';
 
-import cScoreBoard from './components/score-board/c-score-board.vue';
+import cScoreBoard  from './components/score-board/c-score-board.vue';
+
+import * as T       from './types/common';
 
 @Component({
   name: 'VD6',
@@ -12,10 +14,9 @@ import cScoreBoard from './components/score-board/c-score-board.vue';
 })
 
 class VD6 extends Vue {
-  player: {
-    id: String
-  } = {
-    id: '0000'
+  player: T.Player = {
+    id: '0000',
+    score: 0
   };
 };
 

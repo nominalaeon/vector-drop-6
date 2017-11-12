@@ -5,6 +5,7 @@ import Component  from 'vue-class-component';
 import cCinematic from '../cinematic/c-cinematic.vue';
 
 import * as T     from '../../types/common';
+import * as TC    from '../cinematic/i-cinematic';
 
 @Component({
   name: 'StageComponent',
@@ -14,9 +15,20 @@ import * as T     from '../../types/common';
 })
 
 class Stage extends Vue {
-  
+  private cinematics: TC.Cinematics = build();
+
+  get cinematic() {
+    return this.cinematics[this.stage] || {
+      label: 'no cinema'
+    };
+  }
+
+  get stage() {
+    return this.$route.params.stage;
+  }
+
   get title() {
-    return `Lorem ${this.$route.params.stage}`; // `Stage ${this.$route.params.stage}`;
+    return `Lorem ${this.stage}`; // `Stage ${this.$route.params.stage}`;
   }
 
   mounted() {
@@ -25,3 +37,11 @@ class Stage extends Vue {
 };
 
 export default Stage;
+
+function build() {
+  return {
+    test: {
+      label: 'testing'
+    }
+  }
+}

@@ -1,5 +1,5 @@
 
 export interface TitleCard {
-    height?: Number,
-    width?: Number
+    height?: number,
+    width?: number
 };

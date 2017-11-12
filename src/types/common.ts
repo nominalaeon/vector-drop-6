@@ -1,10 +1,15 @@
 
 export interface Dimension {
-  height?: Number,
-  width?: Number
+  height?: number,
+  width?: number
 };
 
 export interface Link {
-  description?: String,
-  url: String
+  description?: string,
+  url: string
+};
+
+export interface Player {
+  id: string,
+  score: number
 };

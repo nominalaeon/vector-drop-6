@@ -23,25 +23,34 @@ class TitleMenu extends Vue {
   }
   
   mounted() {
-    this.menuItems = buildTitleMenu();
+    this.menuItems = this.buildTitleMenu();
 
     console.info('TitleMenu initialized', this);
-  };
+  }
 
   /**
    * General methods
    */
 
+  buildTitleMenu() {
+    var menu: Array<TM.TitleMenuItem> = [{
+      action: () => {
+        console.log('action', this);
+        this.$store.commit('updatePlayerId', 'XXXX');
+        this.$router.push(`/stage/test`);
+      },
+      label: 'Lorem ipsum' // New Game
+    }, {
+      action: () => {
+        
+      },
+      label: 'Dolar dolarbilz' // Stage Select
+    }];
+
+    return menu;
+  }
+
 };
 
 export default TitleMenu;
 
-function buildTitleMenu() {
-  var menu: Array<TM.TitleMenuItem> = [{
-    label: 'Lorem ipsum' // New Game
-  }, {
-    label: 'Dolar dolarbilz' // Stage Select
-  }];
-
-  return menu;
-}

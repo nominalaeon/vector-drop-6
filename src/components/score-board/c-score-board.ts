@@ -12,20 +12,13 @@ import * as T    from '../../types/common';
 })
 
 class ScoreBoard extends Vue {
-  vm: {
-    hiScore: Number
-  } = {
-    hiScore: 1000 //@todo: _getHiScore()
-  };
-  id: String;
-  score: Number = 0;
-
+  
   get hiScore() {
-    return this.vm.hiScore > this.score ? this.vm.hiScore : this.score;
+    return _lpad(this.$store.state.hiScore.toString());
   }
-  set hiScore(hiScore) {
-    var _score = Number(hiScore);
-    this.vm.hiScore = typeof _score === 'number' ? 1000 : _score;
+  
+  get score() {
+    return _lpad(this.$store.state.player.score.toString());
   }
 
   mounted() {
@@ -41,3 +34,11 @@ class ScoreBoard extends Vue {
 };
 
 export default ScoreBoard;
+
+function _lpad(score: string) {
+  while (score.length < 4) {
+    score = `0${score}`;
+  }
+
+  return score;
+}

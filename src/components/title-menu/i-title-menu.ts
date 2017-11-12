@@ -1,8 +1,9 @@
 
 export interface TitleMenuItem {
-    label?: String
+    action?: () => {},
+    label?: string
 };
 
 export interface TitleMenuVM {
-    menuItems: Array<TitleMenuItem>
+    menuItems: TitleMenuItem[]
 };
