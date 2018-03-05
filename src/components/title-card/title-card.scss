@@ -1,0 +1,34 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-title-card {
+  @include size($title-card__width, $title-card__height);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.vd6-title-card__svg {
+  @include square(100%);
+}
+
+.vd6-title-card__path {
+  fill: transparent;
+}
+
+.vd6-title-card__path--bg,
+.vd6-title-card__path--fill,
+.vd6-title-card__path--head {
+  opacity:  0;
+}
+
+.vd6-title-card__path--stroke {
+  fill: transparent;
+  stroke: rgba($color__green--light, 0.5);
+  stroke-dasharray: none;
+  stroke-miterlimit: 0;
+  stroke-width: calc(#{$border__width} / 10);
+}

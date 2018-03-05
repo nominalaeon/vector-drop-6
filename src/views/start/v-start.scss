@@ -1,0 +1,15 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-start {
+    @include size($app__width, $app__height);
+    align-items: center;
+    background-color: $color__rose;
+    background-image: radial-gradient($color__black, rgba($color__black, 0.9) 150%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

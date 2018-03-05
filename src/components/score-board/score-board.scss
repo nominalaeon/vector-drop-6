@@ -1,0 +1,46 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-score-board {
+  align-items: center;
+  background-color: rgba($color__black, 0.5);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: $app__width;
+}
+
+.vd6-score-board__container {
+  align-items: center;
+  color: $color__white;
+  display: flex;
+  height: 2em;
+  justify-content: space-between;
+  width: $app__width;
+  max-width: $app__bp--md;
+}
+
+.vd6-score-board__stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+  text-transform: uppercase;
+  // width: $app__margin;
+  width: $app__column * 2;
+  max-width: $app__bp--sm * 0.5;
+}
+
+// @media screen and(min-width: $app__bp--md) {
+//   .vd6-score-board__container {
+//     width: $app__width * 0.75;
+//   }
+// }
+// @media screen and(min-width: $app__bp--lg) {
+//   .vd6-score-board__container {
+//     width: $app__width * 0.5;
+//   }
+// }

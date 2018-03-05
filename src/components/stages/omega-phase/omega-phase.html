@@ -1,0 +1,30 @@
+
+<div class="vd6-frame vd6-frame--omega-phase">
+
+  <cinematic
+    :key="index"
+    :screen="screen"
+    v-for="(screen, index) in stage.screens" >
+  </cinematic>
+
+  <patient></patient>
+
+  <status
+    :painCount="threshold.pain"
+    :progressCount="threshold.progress">
+  </status>
+
+  <!-- <active-drop
+    :drop="drops[activeDrop]"
+    :has-alchemist-perk="hasAlchemistPerk">
+  </active-drop> -->
+
+  <ready-trays
+    :count="threshold.readyTrays"
+    :drop="drops[activeDrop]"
+    :has-alchemist-perk="hasAlchemistPerk">
+  </ready-trays>
+
+  <levels :levels="levels"></levels>
+
+</div>

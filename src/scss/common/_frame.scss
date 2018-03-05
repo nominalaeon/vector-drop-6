@@ -1,0 +1,14 @@
+
+@import '../../scss/var/colors';
+@import '../../scss/var/dimensions';
+
+@import '../../scss/mixin/sizing';
+
+.vd6-frame {
+  @include size($app__width, $app__height);
+  display: grid;
+  grid-template-columns: repeat(9, $app__column);
+  grid-template-rows: repeat(9, $app__row);
+  position: absolute;
+  top: 0; left: 0;
+}

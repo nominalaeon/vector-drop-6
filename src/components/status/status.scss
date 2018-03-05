@@ -1,0 +1,68 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-status {
+  @include size($app__width, $app__height);
+  display: grid;
+  grid-template-columns: repeat(8, $app__column);
+  grid-template-rows: repeat(8, $app__row);
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.vd6-status__dot {
+  @include size($app__column, $app__row);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &::before {
+    @include square($stage__dot__size);
+    border: 1px solid rgba(red, 0.2);
+    border-radius: 50%;
+    content: '';
+    display: block;
+  }
+}
+
+.vd6-status__title {
+  color: rgba(white, 0.05);
+  position: absolute;
+  bottom: 0.25em;
+}
+
+.vd6-status__view {
+  align-items: center;
+  border: 1px solid rgba(green, 0.2);
+  display: flex;
+  grid-row: 9;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.vd6-status__view--pain {
+  grid-column: 6 / span 4;
+  justify-content: flex-start;
+
+  .vd6-status__title {
+    right: 0.5em;
+  }
+}
+
+.vd6-status__view--progress {
+  grid-column: 1 / span 4;
+  justify-content: flex-end;
+
+  .vd6-status__title {
+    left: 0.5em;
+  }
+}
+
+.vd6-status__view--timer {
+  grid-column: 5;
+}

@@ -1,0 +1,27 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-title-menu {
+  color: rgba($color__white, 0);
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+.vd6-title-menu__item {
+  cursor: pointer;
+  margin-bottom: 1em;
+  transition: all ($app__ani-dur / 2) ease-in-out;
+
+  &:hover {
+    color: $color__rose;
+    text-shadow: 0 0 0 transparent;
+  }
+}
+
+.vd6-title-menu__item--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

@@ -1,0 +1,56 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-levels {
+  color: rgba(white, 0.2);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  grid-column: 8 / span 2;
+  grid-row: 2 / span 6;
+  justify-content: space-between;
+  position: relative;
+}
+
+.vd6-levels__level {
+  @include size($app__column, $app__row);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &::before {
+    @include square($stage__dot__size);
+    border: 1px solid rgba(orange, 0.2);
+    border-radius: 50%;
+    content: '';
+    display: block;
+  }
+
+  // dev element
+  > span {
+    position: absolute;
+    top: 50%; left: 50%;
+    text-align: center;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.vd6-levels__level--bloom {
+  &::before {
+    border-color: rgba(red, 0.2);
+  }
+}
+.vd6-levels__level--critical {
+  &::before {
+    border-color: rgba(yellow, 0.2);
+  }
+}
+.vd6-levels__level--stable {
+  &::before {
+    border-color: rgba(green, 0.2);
+  }
+}

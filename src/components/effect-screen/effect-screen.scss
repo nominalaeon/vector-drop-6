@@ -1,0 +1,20 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-effect-screen {
+  @include size($app__width, $app__height);
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0;
+}
+
+.vd6-effect-screen__ping {
+  @include square($app__column);
+  border: ($border__width / 2) solid rgba($color__rose, 0.25);
+  border-radius: 50%;
+  position: absolute;
+  transform: scaleX(0) scaleY(0);
+}

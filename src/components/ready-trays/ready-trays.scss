@@ -1,0 +1,44 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-ready-trays {
+  color: rgba(white, 0.2);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 6;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.vd6-ready-trays__container {
+  @include size($app__column, 100%);
+  color: rgba(white, 0.2);
+  position: relative;
+}
+
+.vd6-ready-trays__tray {
+  @include size($app__column, $app__row);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &::before {
+    @include square($stage__dot__size);
+    border: 1px solid rgba(red, 0.2);
+    border-radius: 50%;
+    content: '';
+    display: block;
+  }
+}
+
+.vd6-ready-trays__tray--active {
+  &::before {
+    border-color: rgba(yellow, 0.2);
+  }
+}

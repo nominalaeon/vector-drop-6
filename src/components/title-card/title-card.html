@@ -1,0 +1,34 @@
+
+<div class="vd6-title-card">
+
+  <div class="vd6-title-card__wrapper"
+    :style="'width: ' + width + 'px; height: ' + height + 'px;'">
+
+    <svg class="vd6-title-card__svg"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 100 100"
+      width="100" height="100">
+      
+      <defs>
+        <filter id="f1" x="0" y="0">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
+        </filter>
+      </defs>
+
+      <g class="vd6-title-card__path vd6-title-card__path--head"
+        v-html="titleCard.head"></g>
+
+      <g class="vd6-title-card__path vd6-title-card__path--bg"
+        filter="url(#f1)"
+        v-html="titleCard.fill"></g>
+
+      <g class="vd6-title-card__path vd6-title-card__path--fill"
+        v-html="titleCard.fill"></g>
+
+      <g class="vd6-title-card__path vd6-title-card__path--stroke"
+        v-html="titleCard.stroke"></g>
+    
+    </svg>
+
+  </div>
+</div>

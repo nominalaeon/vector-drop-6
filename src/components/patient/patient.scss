@@ -1,0 +1,20 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-patient {
+  @include size($app__width, $app__height);
+  align-items: center;
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  justify-content: center;
+}
+
+.vd6-patient__body {
+  @include size($patient__width, $patient__height);
+  border: 1px solid rgba(white, 0.2);
+  position: relative;
+}

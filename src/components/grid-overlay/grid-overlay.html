@@ -1,0 +1,15 @@
+
+<div class="vd6-grid-overlay">
+
+  <svg class="vd6-grid-overlay__svg"
+    preserveAspectRatio="none">
+
+    <path v-for="(path, index) in displayPaths"
+      :class="'vd6-grid-overlay__path vd6-grid-overlay__path--' + path.dir"
+      :d="path.data"
+      :key="index">
+    </path>
+
+  </svg>
+
+</div>

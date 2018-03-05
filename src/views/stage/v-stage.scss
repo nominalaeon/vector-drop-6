@@ -1,0 +1,21 @@
+
+@import '../../scss/var/colors';
+@import '../../scss/var/dimensions';
+
+@import '../../scss/mixin/sizing';
+
+@import '../../scss/common/frame';
+
+.vd6-stage {
+    @include size($app__width, $app__height);
+    background-color: $color__blue;
+    background-image: radial-gradient($color__black, rgba($color__black, 0.9) 150%);
+    position: relative;
+}
+
+.vd6-stage__cinematic {
+    @include size($app__width, $app__height);
+    background-color: $color__black;
+    position: absolute;
+    top: 0; left: 0;
+}

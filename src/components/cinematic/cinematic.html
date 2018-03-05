@@ -1,0 +1,20 @@
+
+<div class="vd6-cinematic__wrapper"
+  :style="{
+    backgroundColor: screen.bgColor
+  }"
+  v-if="screen && screen.isActive">
+
+  <div class="vd6-cinematic__screen">
+
+    <div class="vd6-cinematic__img">
+      <img src="" :src="imgSrc" />
+    </div>
+
+    <div class="vd6-cinematic__text">
+      <p>{{screen.displayText}}</p>
+    </div>
+
+  </div>
+
+</div>

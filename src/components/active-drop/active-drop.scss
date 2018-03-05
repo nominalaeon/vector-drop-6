@@ -1,0 +1,26 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-active-drop {
+  @include size($app__column, $app__row);
+  align-items: center;
+  color: rgba(white, 0.2);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &::before {
+    @include square($stage__dot__size);
+    border: 1px solid rgba(red, 0.2);
+    border-radius: 50%;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}

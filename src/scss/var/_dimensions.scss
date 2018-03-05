@@ -2,9 +2,21 @@
 $app__height: 100vh;
 $app__width: 100vw;
 
+$app__bp--sm: 375px;
+$app__bp--md: 786px;
+$app__bp--lg: 1200px;
+
 $app__column: $app__width / 9;
+$app__row: $app__height / 9;
 
 $app__margin: $app__column * 2;
+$app__padding: $app__column * 0.25;
+
+/**
+ * Animation
+ */
+
+$app__ani-dur: 200ms;
 
 /**
  * Borders
@@ -16,7 +28,34 @@ $border__width: $app__height * 0.01;
  * Fonts
  */
 
-$font__size: calc(10px + (#{$app__height} * .01));
+$font__size: calc(12px + (#{$app__height} * .001));
+
+/**
+ * Cinematic
+ */
+
+$cinematic__height: $app__height * .50;
+$cinematic__width: $app__width;
+
+/**
+ * Grid
+ */
+
+$grid__width: $app__width;
+$grid__height: $app__height;
+
+/**
+ * Patient
+ */
+
+$patient__width: $app__width - ($app__column * 4);
+$patient__height: $patient__width * 1.5;
+
+/**
+ * Stage
+ */
+
+$stage__dot__size: $app__column * 0.75;
 
 /**
  * Title Card

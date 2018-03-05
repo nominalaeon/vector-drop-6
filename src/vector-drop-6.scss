@@ -1,0 +1,33 @@
+
+@import './scss/var/colors';
+@import './scss/var/dimensions';
+
+@import './scss/mixin/sizing';
+
+.vector-drop-6 {
+  @include size($app__width, $app__height);
+  background-color: rgba($color__black, 0.1);
+  color: $color__black;
+  font-family: 'PT Mono', monospace;
+  font-size: $font__size;
+  position: relative;
+
+  /**
+   * No margin or padding here, this is a full-sized relative container.
+   * If a child needs alignment, it should handle it\
+   */
+
+  h1, h2, h3, h4, h5, h6, p {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.vd6-frame {
+  @include size($app__width, $app__height);
+  align-items: center;
+  background-color: $color__gray--darkest;
+  display: flex;
+  justify-content: center;
+}

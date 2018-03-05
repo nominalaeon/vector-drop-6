@@ -1,0 +1,47 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-cinematic__wrapper {
+  @include size($app__width, $app__height);
+  align-items: flex-start;
+  background-image: linear-gradient(to bottom right, rgba($color__black, 0.2), $color__black);
+  border: 1px solid pink;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0; left: 0;
+  transition: background-color $app__ani-dur ease-in-out;
+}
+
+.vd6-cinematic__screen {
+  @include size($cinematic__width, $cinematic__height);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: $app__row * 2;
+  position: relative;
+}
+
+.vd6-cinematic__img {
+  @include size(100%, 80%);
+  position: absolute;
+  top: 0;
+
+  img {
+    @include size(100%, 100%);
+    object-fit: cover;
+  }
+}
+
+.vd6-cinematic__text {
+  @include size(100%, 20%);
+  color: rgba($color__white, 0.75);
+  font-weight: 600;
+  padding: 1em $app__margin;
+  position: absolute;
+  bottom: 0;
+}

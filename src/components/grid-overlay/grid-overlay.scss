@@ -1,0 +1,32 @@
+
+@import '../../scss/var/_colors.scss';
+@import '../../scss/var/_dimensions.scss';
+
+@import '../../scss/mixin/_sizing.scss';
+
+.vd6-grid-overlay {
+  @include size($grid__width, $grid__height);
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.vd6-grid-overlay__path {
+  fill: transparent;
+  stroke: rgba($color__white, 0.025);
+}
+
+.vd6-grid-overlay__path--circle {
+  
+}
+
+.vd6-grid-overlay__path--horizontal {
+  
+}
+
+.vd6-grid-overlay__path--vertical {
+  
+}
+
+.vd6-grid-overlay__svg {
+  @include square(100%);
+}
