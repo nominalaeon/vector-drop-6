@@ -1,4 +1,8 @@
 
+import Vue from 'vue';
+
+import _isArray from 'lodash/isArray';
+
 import Timer from '@classes/timer.class';
 
 const MINUTE  = 60000;
@@ -20,7 +24,6 @@ function buildActions() {
     resetGameTimer: resetGameTimer,
     startGameTimer: startGameTimer,
     updateActiveGame: updateActiveGame,
-    updateGameElement: updateGameElement,
     updateGameThreshold: updateGameThreshold
   }
 }
@@ -39,7 +42,6 @@ function buildGetters() {
 function buildMutations() {
   return {
     mutateActiveGame: mutateActiveGame,
-    mutateGameElement: mutateGameElement,
     mutateGameThreshold: mutateGameThreshold,
     mutateGameTimer: mutateGameTimer
   };
@@ -47,7 +49,6 @@ function buildMutations() {
 
 function buildState() {
   return {
-    $activeDrop: {},
     $readyTrays: [],
     bpm: 120,
     isActive: false,
@@ -101,10 +102,6 @@ function mutateActiveGame(state, isActive) {
   state.isActive = isActive;
 }
 
-function mutateGameElement(state, data) {
-  state[`$${data.type}`] = data.val;
-}
-
 function mutateGameThreshold(state, data) {
   state.threshold[data.type] = data.threshold;
 }
@@ -130,10 +127,10 @@ function updateActiveGame(context, isActive) {
   context.commit('mutateActiveGame', !!isActive);
 }
 
-function updateGameElement(context, data) {
-  context.commit('mutateGameElement', data);
-}
-
 function updateGameThreshold(context, data) {
   context.commit('mutateGameThreshold', data);
 }
+
+/**
+ * Private methods
+ */

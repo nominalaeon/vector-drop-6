@@ -1,10 +1,17 @@
 
 import _isNumber from 'lodash/isNumber';
+import _kebabCase from 'lodash/kebabCase';
+
+const SELECTOR = 'vd6-levels__level';
 
 export default class Level {
   constructor(props) {
     var level = _initProps({ _vm: {} }, props, Object.keys(props));
     Object.assign(this, level);
+  }
+
+  get classList() {
+    return `${SELECTOR}--${_kebabCase(this.name)} ${SELECTOR}--${this.conditionLabel}`;
   }
 
   get condition() {
@@ -14,11 +21,25 @@ export default class Level {
     this._vm.condition = _isNumber(condition) ? condition : 1;
   }
 
+  get conditionLabel() {
+    return this.condition === this.threshold.min
+      ? 'stable'
+      : this.condition < this.threshold.max
+        ? 'critical'
+        : 'bloom';
+  }
+
   get critical() {
-    return this._vm.critical || 'high';
+    return this._vm.critical || 'High';
   }
   set critical(critical) {
     this._vm.critical = critical;
+  }
+
+  get label() {
+    return this.condition === this.threshold.max
+      ? this.ailment.name
+      : this[this.conditionLabel];
   }
 
   get status() {
@@ -29,7 +50,7 @@ export default class Level {
   }
 
   get stable() {
-    return this._vm.stable || 'stable';
+    return this._vm.stable || 'Stable';
   }
   set stable(stable) {
     this._vm.stable = stable;
@@ -43,18 +64,6 @@ export default class Level {
       max: threshold.max || 3,
       min: threshold.min || 1
     };
-  }
-
-  decrease() {
-    if (this.condition === this.threshold.min) return;
-
-    this.condition = this.condition - 1;
-  }
-
-  increase() {
-    if (this.condition === this.threshold.max) return;
-
-    this.condition = this.condition + 1;
   }
 };
 

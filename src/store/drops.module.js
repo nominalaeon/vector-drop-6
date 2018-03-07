@@ -1,5 +1,8 @@
 
+import Vue from 'vue';
+
 import _camelCase from 'lodash/camelCase';
+import _random from 'lodash/random';
 
 import Drop from '@classes/drop.class';
 
@@ -15,13 +18,14 @@ export default {
 
 function buildActions() {
   return {
-    updateActiveDrop: updateActiveDrop
+    updateDropsActive: updateDropsActive
   }
 }
 
 function buildMutations() {
   return {
-    mutateActiveDrop: mutateActiveDrop
+    addActiveDrop: addActiveDrop,
+    removeActiveDrop: removeActiveDrop
   };
 }
 
@@ -29,7 +33,7 @@ function buildState() {
   var defaultDrops = _buildDefaultDrops();
 
   return {
-    active: '',
+    active: {},
     all: _buildDrops({}, defaultDrops, Object.keys(defaultDrops))
   };
 }
@@ -38,12 +42,19 @@ function buildState() {
  * General methods
  */
 
-function mutateActiveDrop(state, activeDrop) {
-  state.active = activeDrop;
+function addActiveDrop(state, key) {
+  var drop = new Drop(state.all[key]);
+  drop.id = key + _random(0, 100);
+
+  Vue.set(state.active, drop.id, drop);
 }
 
-function updateActiveDrop(context, activeDrop) {
-  context.commit('mutateActiveDrop', activeDrop);
+function removeActiveDrop(state, dropId) {
+  Vue.delete(state.active, dropId);
+}
+
+function updateDropsActive(context, data) {
+  context.commit(`${data.method}ActiveDrop`, data.name);
 }
 
 /**
@@ -52,6 +63,7 @@ function updateActiveDrop(context, activeDrop) {
 
 function _buildDrops(drops, defaultDrops, [dropName, ...dropNames]) {
   drops[dropName] = new Drop(defaultDrops[dropName]);
+  drops[dropName].key = dropName;
 
   return dropNames.length
     ? _buildDrops(drops, defaultDrops, dropNames)

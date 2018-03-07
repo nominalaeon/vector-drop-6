@@ -16,23 +16,12 @@ export default {
 
   props: [
     'levels'
-  ],
-
-  watch: {
-    levels: {
-      handler: onUpdateLevels,
-      deep: true
-    }
-  }
+  ]
 };
 
 /**
  * General methods
  */
-
-function onUpdateLevels(newVal) {
-  console.log('onUpdateLevels', newVal, this);
-}
 
 /**
  * Private utility methods

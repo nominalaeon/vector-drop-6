@@ -3,17 +3,23 @@
 
   <div class="vd6-ready-trays__container">
 
-    <active-drop
-      :drop="drop"
-      :has-alchemist-perk="hasAlchemistPerk">
-    </active-drop>
-
-    <div class="vd6-ready-trays__tray vd6-ready-trays__tray--active"
-      v-for="index in count">
+    <div class="vd6-ready-trays__active-drop">
+      <active-drop
+        :drop="drop"
+        :key="dropId"
+        v-for="(drop, dropId) in activeDrops">
+      </active-drop>
     </div>
+
+    <ready-tray
+      :key="trayId"
+      :tray="tray"
+      v-for="(tray, trayId) in readyTrays">
+    </ready-tray>
+
     <div class="vd6-ready-trays__tray"
       :class="{
-        'vd6-ready-trays__tray--active': hasAlchemistPerk
+        'vd6-ready-trays__tray--disabled': !hasAlchemistPerk
       }">
     </div>
 

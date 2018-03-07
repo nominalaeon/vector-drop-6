@@ -6,11 +6,8 @@ export default {
 
   computed: {
     ...mapState({
-      $drop: function drop(state) {
-        return state.game.$activeDrop || {};
-      },
-      $targets: function targets(state) {
-        return state.game.$readyTrays || [];
+      targets: function targets(state) {
+        return state.readyTrays.all || {};
       }
     }),
 
@@ -33,7 +30,7 @@ export default {
   methods: {
     init: init,
     initDraggable: initDraggable,
-    selectElements: selectElements
+    resetElement: resetElement
   },
 
   props: [
@@ -41,9 +38,7 @@ export default {
   ],
 
   watch: {
-    $targets: function watchTargets(newVal) {
-      if (!newVal.length) return;
-
+    targets: function watchTargets(newVal) {
       this.initDraggable();
     }
   }
@@ -54,14 +49,13 @@ export default {
  */
 
 function init() {
-  this.selectElements();
+  this.resetElement();
 
   console.info('ActiveDrop initialized', this);
 }
 
 function initDraggable() {
-  this.draggable = Draggable.create(this.$drop.root, {
-    // bounds: this.$drop.parent.parentNode,
+  this.draggable = Draggable.create(this.$el, {
     bounds: document.querySelector('body'),
     edgeResistance: 0.75,
     throwProps: true,
@@ -70,40 +64,44 @@ function initDraggable() {
       x: onSnap.bind(this, 'x'),
       y: onSnap.bind(this, 'y')
     }
-  });
+  })[0];
 }
 
 function onSnap(dir, delta) {
-  var $targetHit = false;
+  var data = {
+    hitTest: this.draggable.hitTest,
+    threshold: this.threshold
+  };
+  var targetHit = _detectTargetHit(data, false, this.targets, Object.keys(this.targets));
 
-  this.$targets.forEach(($target) => {
-    var isHit = this.draggable[0].hitTest($target.root, this.threshold);
+  if (!targetHit) return delta;
 
-    if ($targetHit || !isHit) return;
-
-    $targetHit = $target;
-  });
-
-  if (!$targetHit) return delta;
-
-  console.log('onSnap', $targetHit, dir, delta);
+  targetHit.hasDrop = true;
 
   return dir === 'x'
-    ? $targetHit.coor.left - this.$drop.parent.offsetLeft
-    : $targetHit.coor.top - $targetHit.coor.height;
+    ? targetHit.coor.left - targetHit.coor.x
+    : targetHit.coor.top - targetHit.coor.height;
 }
 
-function selectElements() {
-  this.$store.dispatch('updateGameElement', {
-    type: 'activeDrop',
-    val: {
-      coor: this.$el.getBoundingClientRect(),
-      parent: this.$el.parentNode,
-      root: this.$el
-    }
-  });
+function resetElement() {
+  this.drop.coor = this.$el.getBoundingClientRect();
+  this.drop.root = this.$el;
 }
 
 /**
  * Private utility methods
  */
+
+function _detectTargetHit(data, targetHit, targets, [key, ...keys]) {
+  var target = targets[key];
+
+  if (data.hitTest(target.root, data.threshold)) {
+    targetHit = target;
+  }
+
+  return keys.length
+    ? _detectTargetHit(data, targetHit, targets, keys)
+    : targetHit;
+
+
+}

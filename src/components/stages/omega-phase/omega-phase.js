@@ -28,14 +28,14 @@ export default {
       'tempo'
     ]),
     ...mapState({
-      activeDrop: function activeDrop(state) {
+      activeDrops: function activeDrop(state) {
         return state.drops.active;
       },
       hasAlchemistPerk: function hasAlchemistPerk(state) {
         return state.player.perks.includes('alchemist');
       },
-      drops: function drops(state) {
-        return state.drops.all;
+      dropNames: function dropNames(state) {
+        return Object.keys(state.drops.all);
       },
       levels: function levels(state) {
         return state.levels.all;
@@ -91,17 +91,25 @@ export default {
  */
 
 function onUpdateLoops() {
-  console.info('OmegaPhase watch loops', this);
-  this.$store.dispatch('increaseLevel', 'collagen');
-  // this.forceUpdate();
+  var randomMethod = _random(0, 1) ? 'increase' : 'decrease';
+
+  this.levels.collagen.increase();
+
+  if (this.levels.hypochlorousAcid.condition !== this.levels.hypochlorousAcid.threshold.max) {
+    this.levels.hypochlorousAcid[randomMethod]();
+  }
+
+  console.info('OmegaPhase onUpdateLoops', this.levels.hypochlorousAcid, randomMethod);
 }
 
 function resetActiveDrop() {
-  var dropKeys = Object.keys(this.drops);
-  var dropCount = dropKeys.length ? (dropKeys.length - 1) : 0;
+  var dropCount = this.dropNames.length ? (this.dropNames.length - 1) : 0;
   var index = _random(0, dropCount);
 
-  this.$store.dispatch('updateActiveDrop', dropKeys[index]);
+  this.$store.dispatch('updateDropsActive', {
+    method: 'add',
+    name: this.dropNames[index]
+  });
 }
 
 function startGameTimer() {

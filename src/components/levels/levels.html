@@ -1,12 +1,8 @@
 
 <div class="vd6-levels">
   <div class="vd6-levels__level"
-    :class="{
-      'vd6-levels__level--stable':    level.condition === 1,
-      'vd6-levels__level--critical':  level.condition === 2,
-      'vd6-levels__level--bloom':     level.condition === 3
-    }"
+    :class="level.classList"
     v-for="(level, levelName) in levels">
-    <span>{{level.name}}:{{level.condition}}</span>
+    <p class="vd6-levels__label"><span>{{level.name}}</span><br/>{{level.label}}</p>
   </div>
 </div>

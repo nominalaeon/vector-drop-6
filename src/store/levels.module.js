@@ -2,7 +2,12 @@
 import _camelCase from 'lodash/camelCase';
 
 import Ailment from '@classes/ailment.class';
-import Level from '@classes/level.class';
+import CellCohesion from '@classes/levels/cell-cohesion.class';
+import Collagen from '@classes/levels/collagen.class';
+import Histamines from '@classes/levels/histamines.class';
+import HypochlorousAcid from '@classes/levels/hypochlorous-acid.class';
+import Interferon from '@classes/levels/interferon.class';
+import Lymphocytes from '@classes/levels/lymphocytes.class';
 
 export default {
   actions:    buildActions(),
@@ -43,7 +48,8 @@ function buildState() {
  */
 
 function _buildLevels(levels, defaultLevels, [levelName, ...levelNames]) {
-  levels[levelName] = new Level(defaultLevels[levelName]);
+  var level = defaultLevels[levelName];
+  levels[levelName] = new level.Class(level.props);
 
   return levelNames.length
     ? _buildLevels(levels, defaultLevels, levelNames)
@@ -53,39 +59,59 @@ function _buildLevels(levels, defaultLevels, [levelName, ...levelNames]) {
 function _buildDefaultLevels() {
   return {
     cellCohesion: {
-      ailment: new Ailment({ name: 'Radiocytosis' }),
-      condition: 1,
-      critical: 'Anaphase',
-      name: 'Cell Cohesion',
-      stable: 'intact'
+      Class: CellCohesion,
+      props: {
+        ailment: new Ailment({ name: 'Radiocytosis' }),
+        condition: 1,
+        critical: 'Anaphase',
+        name: 'Cell Cohesion',
+        stable: 'Intact'
+      }
     },
     collagen: {
-      ailment: new Ailment({ name: 'Scurvy' }),
-      condition: 1,
-      critical: 'Pirate',
-      name: 'Collagen'
+      Class: Collagen,
+      props: {
+        ailment: new Ailment({ name: 'Scurvy' }),
+        condition: 1,
+        critical: 'Pirate',
+        name: 'Collagen'
+      }
     },
     histamines: {
-      ailment: new Ailment({ name: 'Rhinitis' }),
-      condition: 1,
-      critical: 'Some',
-      name: 'Histamines',
-      stable: 'None'
+      Class: Histamines,
+      props: {
+        ailment: new Ailment({ name: 'Rhinitis' }),
+        condition: 1,
+        critical: 'Some',
+        name: 'Histamines',
+        stable: 'None'
+      }
     },
     hypochlorousAcid: {
-      ailment: new Ailment({ name: 'Bactolepsis' }),
-      condition: 1,
-      name: 'Hypochlorous Acid'
+      Class: HypochlorousAcid,
+      props: {
+        ailment: new Ailment({ name: 'Bactolepsis' }),
+        condition: 1,
+        name: 'Hypochlorous Acid'
+      }
     },
     interferon: {
-      ailment: new Ailment({ name: 'Viroparesis' }),
-      condition: 1,
-      name: 'Interferon'
+      Class: Interferon,
+      props: {
+        ailment: new Ailment({ name: 'Viroparesis' }),
+        condition: 1,
+        name: 'Interferon'
+      }
     },
     lymphocytes: {
-      ailment: new Ailment({ name: 'Carcinomoly' }),
-      condition: 1,
-      name: 'Lymphocytes'
+      Class: Lymphocytes,
+      props: {
+        ailment: new Ailment({ name: 'Carcinomoly' }),
+        condition: 1,
+        critical: 'Atypical',
+        name: 'Lymphocytes',
+        stable: 'Normal'
+      }
     }
   };
 }

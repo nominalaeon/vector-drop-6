@@ -15,6 +15,18 @@
   position: relative;
 }
 
+.vd6-levels__label {
+  font-size: 0.75em;
+  position: absolute;
+  top: 50%; left: 50%;
+  text-align: center;
+  transform: translateX(-50%) translateY(-50%);
+
+  span {
+    white-space: nowrap;
+  }
+}
+
 .vd6-levels__level {
   @include size($app__column, $app__row);
   align-items: center;
@@ -29,15 +41,9 @@
     content: '';
     display: block;
   }
-
-  // dev element
-  > span {
-    position: absolute;
-    top: 50%; left: 50%;
-    text-align: center;
-    transform: translateX(-50%) translateY(-50%);
-  }
 }
+
+// Level by Condition
 
 .vd6-levels__level--bloom {
   &::before {
@@ -52,5 +58,18 @@
 .vd6-levels__level--stable {
   &::before {
     border-color: rgba(green, 0.2);
+  }
+}
+
+// Level by Name
+
+.vd6-levels__level--cell-cohesion {
+  transition: letter-spacing $app__ani-dur ease-in-out;
+
+  &.vd6-levels__level--bloom {
+    letter-spacing: 0.25em;
+  }
+  &.vd6-levels__level--critical {
+    letter-spacing: 0.15em;
   }
 }

@@ -14,16 +14,7 @@
     :progressCount="threshold.progress">
   </status>
 
-  <!-- <active-drop
-    :drop="drops[activeDrop]"
-    :has-alchemist-perk="hasAlchemistPerk">
-  </active-drop> -->
-
-  <ready-trays
-    :count="threshold.readyTrays"
-    :drop="drops[activeDrop]"
-    :has-alchemist-perk="hasAlchemistPerk">
-  </ready-trays>
+  <ready-trays :count="threshold.readyTrays" :has-alchemist-perk="hasAlchemistPerk"></ready-trays>
 
   <levels :levels="levels"></levels>
 
