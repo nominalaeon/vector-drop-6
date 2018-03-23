@@ -17,20 +17,20 @@ export default {
 
   computed: {
     ...mapState({
-      stage: function stage(state) {
+      stage: function mapStage(state) {
         return state.stages.all[state.stages.active] || new Stage({});
       }
     }),
-    componentName: function stageName() {
+    componentName: function buildComponentName() {
       return this.$route.params.stage || '';
     },
   },
 
-  created: function created() {
+  created: function onCreated() {
     this.$store.dispatch('updateActiveStage', this.componentName);
   },
 
-  data: function data() {
+  data: function buildData() {
     return {
 
     }
@@ -40,10 +40,14 @@ export default {
 
   },
 
-  mounted: function mounted() {
+  mounted: function onMounted() {
     console.info('Stage mounted', this);
   }
 }
+
+/**
+ * MapState methods
+ */
 
 /**
  * General methods

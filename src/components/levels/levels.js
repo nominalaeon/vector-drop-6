@@ -2,11 +2,11 @@
 export default {
   name: 'Levels',
 
-  data: function data() {
+  data: function buildData() {
     return {};
   },
 
-  mounted: function mounted() {
+  mounted: function onMounted() {
     console.info('Levels initialized', this);
   },
 

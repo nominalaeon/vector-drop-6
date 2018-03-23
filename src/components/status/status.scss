@@ -16,6 +16,7 @@
 .vd6-status__dot {
   @include size($app__column, $app__row);
   align-items: center;
+  color: white;
   display: flex;
   justify-content: center;
   position: relative;
@@ -26,6 +27,12 @@
     border-radius: 50%;
     content: '';
     display: block;
+  }
+}
+
+.vd6-status__dot--active {
+  &::before {
+    border-color: rgba(green, 0.4);
   }
 }
 
@@ -40,14 +47,13 @@
   border: 1px solid rgba(green, 0.2);
   display: flex;
   grid-row: 9;
-  justify-content: space-between;
+  justify-content: flex-start;
   position: relative;
   width: 100%;
 }
 
 .vd6-status__view--pain {
   grid-column: 6 / span 4;
-  justify-content: flex-start;
 
   .vd6-status__title {
     right: 0.5em;
@@ -55,8 +61,8 @@
 }
 
 .vd6-status__view--progress {
+  flex-direction: row-reverse;
   grid-column: 1 / span 4;
-  justify-content: flex-end;
 
   .vd6-status__title {
     left: 0.5em;

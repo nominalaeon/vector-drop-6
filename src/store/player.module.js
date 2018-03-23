@@ -29,7 +29,6 @@ function buildState() {
   return {
     id: '----',
     perks: [],
-    readyTrays: [],
     score: 0
   };
 }
@@ -52,7 +51,8 @@ function mutatePlayerPerks(state, { method, perk }) {
 
 function mutatePlayerScore(state, increment) {
   state.score = _incrementScore(state.score, increment);
-  state.dispatch('updateHiScore', state.score);
+
+  return state.score;
 }
 
 function updatePlayerId(context, id) {
@@ -63,8 +63,10 @@ function updatePlayerPerks(context, id) {
   context.commit('mutatePlayerPerks', id);
 }
 
-function updatePlayerScore(context, id) {
-  context.commit('mutatePlayerScore', id);
+function updatePlayerScore(context, increment) {
+  context.commit('mutatePlayerScore', increment);
+
+  context.dispatch('updateHiScore', context.state.score);
 }
 
 /**

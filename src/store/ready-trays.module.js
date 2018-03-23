@@ -53,7 +53,7 @@ function _addReadyTray(state, index, readyTrays) {
   var readyTray = new ReadyTray(readyTrays[index]);
   readyTray.id = 'readyTray' + index;
 
-  Vue.set(state.all, readyTray.id, readyTrays[index]);
+  Vue.set(state.all, readyTray.id, readyTray);
 
   index = index + 1;
 

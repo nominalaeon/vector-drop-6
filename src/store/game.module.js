@@ -24,6 +24,8 @@ function buildActions() {
     resetGameTimer: resetGameTimer,
     startGameTimer: startGameTimer,
     updateActiveGame: updateActiveGame,
+    updateGamePain: updateGamePain,
+    updateGameProgress: updateGameProgress,
     updateGameThreshold: updateGameThreshold
   }
 }
@@ -43,6 +45,8 @@ function buildMutations() {
   return {
     mutateActiveGame: mutateActiveGame,
     mutateGameThreshold: mutateGameThreshold,
+    mutateGamePain: mutateGamePain,
+    mutateGameProgress: mutateGameProgress,
     mutateGameTimer: mutateGameTimer
   };
 }
@@ -102,6 +106,14 @@ function mutateActiveGame(state, isActive) {
   state.isActive = isActive;
 }
 
+function mutateGamePain(state, pain) {
+  state.pain = pain;
+}
+
+function mutateGameProgress(state, increment) {
+  state.progress = state.progress + increment;
+}
+
 function mutateGameThreshold(state, data) {
   state.threshold[data.type] = data.threshold;
 }
@@ -125,6 +137,14 @@ function startGameTimer(context) {
 
 function updateActiveGame(context, isActive) {
   context.commit('mutateActiveGame', !!isActive);
+}
+
+function updateGamePain(context, pain) {
+  context.commit('mutateGamePain', pain);
+}
+
+function updateGameProgress(context, increment) {
+  context.commit('mutateGameProgress', increment);
 }
 
 function updateGameThreshold(context, data) {

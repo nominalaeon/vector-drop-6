@@ -2,11 +2,11 @@
 export default {
   name: 'Status',
 
-  data: function data() {
+  data: function buildData() {
     return {};
   },
 
-  mounted: function mounted() {
+  mounted: function onMounted() {
     console.info('Status initialized', this);
   },
 
@@ -15,7 +15,9 @@ export default {
   },
 
   props: [
+    'pain',
     'painCount',
+    'progress',
     'progressCount'
   ]
 };

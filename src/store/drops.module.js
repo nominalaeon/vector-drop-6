@@ -50,6 +50,7 @@ function addActiveDrop(state, key) {
 }
 
 function removeActiveDrop(state, dropId) {
+  console.log('removeActiveDrop', dropId);
   Vue.delete(state.active, dropId);
 }
 
@@ -73,21 +74,27 @@ function _buildDrops(drops, defaultDrops, [dropName, ...dropNames]) {
 function _buildDefaultDrops() {
   return {
     antiBots: {
+      level: 'hypochlorousAcid',
       name: 'Anti-bots'
     },
     antigenX: {
+      level: 'interferon',
       name: 'Antigen-X'
     },
     carbonadium: {
+      level: 'lymphocytes',
       name: 'Carbonadium'
     },
     citricol: {
+      level: 'collagen',
       name: 'Citricol'
     },
     histAWay: {
+      level: 'histamines',
       name: 'Hist-A-Way'
     },
     zeoBots: {
+      level: 'cellCohesion',
       name: 'Zeo-bots'
     }
   };

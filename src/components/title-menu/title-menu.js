@@ -2,13 +2,13 @@
 export default {
   name: 'TitleMenu',
 
-  data: function data() {
+  data: function buildData() {
     return {
       menuItems: []
     };
   },
 
-  mounted: function mounted() {
+  mounted: function onMounted() {
     this.menuItems = _buildTitleMenu(this.$router, this.$store);
 
     console.info('TitleMenu initialized', this);

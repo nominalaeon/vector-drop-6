@@ -1,9 +1,16 @@
 
-<div class="vd6-patient">
-  <div class="vd6-patient__body">
-    <!--
-      TODO: Draw the patient, use SVG paths with id's for
-        GSAP Draggable snap targets
-      -->
+<div class="vd6-patient"
+  :class="{
+    'vd6-patient--scurvy': hasBloom('collagen')
+  }">
+
+  <div class="vd6-patient__container">
+    <div class="vd6-patient__body">
+      <!--
+        TODO: Draw the patient, use SVG paths with id's for
+          GSAP Draggable snap targets
+        -->
+    </div>
   </div>
+
 </div>

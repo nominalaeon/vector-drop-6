@@ -5,13 +5,13 @@ export default {
 
   },
 
-  data: function data() {
+  data: function buildData() {
     return {
       selector: 'vd6-effect-screen'
     }
   },
 
-  mounted: function mounted() {
+  mounted: function onMounted() {
     this.selectElements();
     this.bindEvents();
 
@@ -38,7 +38,7 @@ function onClick(event) {
     y: event.y - (this.ping.height / 2)
   });
 
-  _buildTlPing(this.ping.root);
+  _buildPing(this.ping.root);
 }
 
 function selectElements() {
@@ -55,7 +55,7 @@ function selectElements() {
  * Private utility methods
  */
 
-function _buildTlPing(el) {
+function _buildPing(el) {
   var tl = new TimelineLite({ repeat: false });
 
   tl.to(el, 0.25, {

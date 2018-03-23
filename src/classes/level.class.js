@@ -36,6 +36,10 @@ export default class Level {
     this._vm.critical = critical;
   }
 
+  get isBloomed() {
+    return this.conditionLabel === 'bloom';
+  }
+
   get label() {
     return this.condition === this.threshold.max
       ? this.ailment.name
@@ -64,6 +68,14 @@ export default class Level {
       max: threshold.max || 3,
       min: threshold.min || 1
     };
+  }
+
+  cure() {
+    this.reset();
+  }
+
+  reset() {
+    this.condition = this.threshold.min;
   }
 };
 

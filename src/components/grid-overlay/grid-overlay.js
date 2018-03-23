@@ -2,25 +2,24 @@
 export default {
   name: 'GridOverlay',
 
-  data: function data() {
-    return {
-      pathEls: [],
-      paths: []
-    };
-  },
-
   computed: {
     displayPaths: {
-      get: function () {
-        return this.paths;
+      get: function getDisplayPaths() {
+        return this._displayPaths || [];
       },
-      set: function (paths) {
-        this.paths = paths;
+      set: function setDisplayPaths(displayPaths) {
+        this._displayPaths = displayPaths;
       }
     }
   },
 
-  mounted: function mounted() {
+  data: function buildData() {
+    return {
+      _displayPaths: {}
+    };
+  },
+
+  mounted: function onMounted() {
     this.init();
 
     console.info('Grid initialized', this);

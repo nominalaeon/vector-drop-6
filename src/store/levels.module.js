@@ -21,16 +21,19 @@ export default {
 
 function buildActions() {
   return {
-    increaseLevel: function increaseLevel(context, levelKey) {
-      context.commit('increaseLevel', levelKey);
+    updateLevel: function updateLevel(context, data) {
+      if (!data.levelKey || !data.method) return;
+
+      context.commit('mutateLevel', data);
     }
   }
 }
 
 function buildMutations() {
   return {
-    increaseLevel: function increaseLevel(state, levelKey) {
-      state.all[levelKey].increase();
+    mutateLevel: function mutateLevel(state, data) {
+      console.log('mutateLevel', state, data.levelKey, data.method);
+      state.all[data.levelKey][data.method]();
     }
   };
 }

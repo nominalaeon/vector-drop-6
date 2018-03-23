@@ -4,6 +4,9 @@
   <div class="vd6-status__view vd6-status__view--progress">
     <h2 class="vd6-status__title">Progress</h2>
     <div class="vd6-status__dot"
+      :class="{
+        'vd6-status__dot--active': progress >= index
+      }"
       v-for="index in progressCount">
     </div>
   </div>
@@ -11,6 +14,9 @@
   <div class="vd6-status__view vd6-status__view--pain">
     <h2 class="vd6-status__title">Pain</h2>
     <div class="vd6-status__dot"
+      :class="{
+        'vd6-status__dot--active': pain >= index
+      }"
       v-for="index in painCount">
     </div>
   </div>

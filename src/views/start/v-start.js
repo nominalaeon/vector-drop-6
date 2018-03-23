@@ -11,7 +11,7 @@ export default {
     'title-menu': cTitleMenu
   },
 
-  data: function data() {
+  data: function buildData() {
     return {
       titleCard: {
         height: 100,
@@ -20,7 +20,7 @@ export default {
     };
   },
 
-  mounted: function mounted() {
+  mounted: function onMounted() {
     console.info('Start mounted', this);
 
     Object.assign(this.titleCard, selectTitleCardElements(this.$el));

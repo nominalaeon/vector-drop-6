@@ -1,5 +1,8 @@
 
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
+import { mapState }   from 'vuex';
+
+import _random from 'lodash/random';
 
 import cActiveDrop  from '@components/active-drop/active-drop.vue';
 import cReadyTray   from '@components/ready-tray/ready-tray.vue';
@@ -13,41 +16,54 @@ export default {
   },
 
   computed: {
+    ...mapGetters([
+      'tempo'
+    ]),
     ...mapState({
-      activeDrops: function activeDrops(state) {
+      activeDrops: function mapActiveDrops(state) {
         return state.drops.active;
       },
-      count: function count(state) {
+      count: function mapReadyTraysThreshold(state) {
         return state.game.threshold.readyTrays;
       },
-      readyTrays: function readyTrays(state) {
+      dropNames: function mapDropNames(state) {
+        return Object.keys(state.drops.all);
+      },
+      readyTrays: function mapReadyTrays(state) {
         return state.readyTrays.all;
       }
     })
   },
 
-  data: function data() {
+  data: function buildData() {
     return {
-
+      selector: 'vd6-ready-trays'
     };
-  },
-
-  mounted: function mounted() {
-    setTimeout(this.init.bind(this));
   },
 
   methods: {
     init: init,
-    initTrays: initTrays
+    initTrays: initTrays,
+    onDropPlayed: onDropPlayed,
+    resetActiveDrop: resetActiveDrop,
+    updateDrops: updateDrops
+  },
+
+  mounted: function onMounted() {
+    this.resetActiveDrop();
+
+    setTimeout(this.init.bind(this));
   },
 
   props: [
-    'hasAlchemistPerk'
+    'hasAlchemistPerk',
+    'onCure',
+    'updateScore'
   ]
 };
 
 /**
- * General methods
+ * Init methods
  */
 
 function init() {
@@ -64,6 +80,45 @@ function initTrays() {
   var readyTrays = _buildReadyTrays(data, [], 0);
 
   this.$store.dispatch('updateReadyTrays', readyTrays);
+}
+
+/**
+ * General methods
+ */
+
+function onDropPlayed(dropId, readyTrayId) {
+  if (!this.activeDrops[dropId]) return;
+
+  this.readyTrays[readyTrayId].hasDrop = false;
+
+  this.updateScore('dropPlayed');
+  this.onCure(this.activeDrops[dropId].level);
+
+  this.$store.dispatch('updateDropsActive', {
+    method: 'remove',
+    name: dropId
+  });
+}
+
+function resetActiveDrop() {
+  var dropCount = this.dropNames.length ? (this.dropNames.length - 1) : 0;
+  var index = _random(0, dropCount);
+
+  this.$store.dispatch('updateDropsActive', {
+    method: 'add',
+    name: this.dropNames[index]
+  });
+}
+
+function updateDrops(dropId, readyTrayId, dropPlayed) {
+  if (dropPlayed) {
+    return setTimeout(this.onDropPlayed.bind(this, dropId, readyTrayId), this.tempo);
+  }
+
+  this.readyTrays[readyTrayId].hasDrop = true;
+
+  this.updateScore('dropTrayed');
+  this.resetActiveDrop();
 }
 
 /**

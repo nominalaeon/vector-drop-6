@@ -15,3 +15,7 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+
+static/gsap/*.js
+static/gsap/**/*.js
+static/js/gsap*.js

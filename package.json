@@ -5,13 +5,17 @@
   "author": "Noah Rodenbeek <noah@rodenbeek.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "npm run gsap && webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "gsap": "npm run gsap:easing && npm run gsap:plugins && npm run gsap:utils",
+    "gsap:easing": "concat-cli -f ./static/gsap/easing/*.js -o static/js/gsap-easing.js",
+    "gsap:plugins": "concat-cli -f ./static/gsap/plugins/*.js -o static/js/gsap-plugins.js",
+    "gsap:utils": "concat-cli -f ./static/gsap/utils/*.js -o static/js/gsap-utils.js"
   },
   "dependencies": {
     "lodash": "^4.17.5",
@@ -37,6 +41,7 @@
     "babel-register": "^6.22.0",
     "chalk": "^2.0.1",
     "chromedriver": "^2.27.2",
+    "concat-cli": "^4.0.0",
     "copy-webpack-plugin": "^4.0.1",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",

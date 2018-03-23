@@ -11,7 +11,7 @@ export default {
     'score-board': cScoreBoard
   },
 
-  data: function data() {
+  data: function buildData() {
     return {
       player: {
         id: '0000',
@@ -20,7 +20,7 @@ export default {
     }
   },
 
-  mounted: function mounted() {
+  mounted: function onMounted() {
     console.log('VectorDrop6 initialized', this);
   }
 };

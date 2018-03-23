@@ -2,13 +2,13 @@
 export default {
   name: 'ReadyTray',
 
-  data: function data() {
+  data: function buildData() {
     return {
 
     };
   },
 
-  mounted: function mounted() {
+  mounted: function onMounted() {
     setTimeout(this.init.bind(this));
   },
 

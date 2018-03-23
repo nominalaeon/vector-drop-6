@@ -5,6 +5,7 @@ import Vuex from 'vuex';
 import mDrops       from './drops.module';
 import mGame        from './game.module';
 import mLevels      from './levels.module';
+import mPatient     from './patient.module';
 import mPlayer      from './player.module';
 import mReadyTrays  from './ready-trays.module';
 import mScore       from './score.module';
@@ -32,6 +33,7 @@ function buildModules() {
     drops:      mDrops,
     game:       mGame,
     levels:     mLevels,
+    patient:    mPatient,
     player:     mPlayer,
     readyTrays: mReadyTrays,
     score:      mScore,

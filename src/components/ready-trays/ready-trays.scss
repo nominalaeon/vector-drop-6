@@ -5,8 +5,8 @@
 @import '../../scss/mixin/_sizing.scss';
 
 .vd6-ready-trays {
-  color: rgba(white, 0.2);
   align-items: center;
+  color: rgba(white, 0.2);
   display: flex;
   flex-direction: column;
   grid-column: 1 / span 2;
@@ -18,6 +18,11 @@
 .vd6-ready-trays__container {
   @include size($app__column, 100%);
   color: rgba(white, 0.2);
+  position: relative;
+}
+
+.vd6-ready-trays__active-drop {
+  @include size($app__column, $app__row);
   position: relative;
 }
 

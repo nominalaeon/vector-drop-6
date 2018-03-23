@@ -27,26 +27,30 @@ export default {
       'loops',
       'tempo'
     ]),
+
     ...mapState({
-      activeDrops: function activeDrop(state) {
-        return state.drops.active;
-      },
-      hasAlchemistPerk: function hasAlchemistPerk(state) {
+      hasAlchemistPerk: function mapHasAlchemistPerk(state) {
         return state.player.perks.includes('alchemist');
       },
-      dropNames: function dropNames(state) {
-        return Object.keys(state.drops.all);
-      },
-      levels: function levels(state) {
+      levels: function mapLevels(state) {
         return state.levels.all;
       },
-      threshold: function threshold(state) {
+      pain: function mapPain(state) {
+        return state.game.pain;
+      },
+      points: function mapPoints(state) {
+        return state.score.points;
+      },
+      progress: function mapProgress(state) {
+        return state.game.progress;
+      },
+      threshold: function mapGameThreshold(state) {
         return state.game.threshold;
       }
     })
   },
 
-  created: function created() {
+  created: function onCreated() {
     this._vm = {};
 
     let stageData = {
@@ -59,21 +63,23 @@ export default {
       .then(this.startGameTimer);
   },
 
-  data: function data() {
+  data: function buildData() {
     return {};
   },
 
   methods: {
+    onCure: onCure,
     onUpdateLoops: onUpdateLoops,
-    resetActiveDrop: resetActiveDrop,
     startGameTimer: startGameTimer,
+    updateLevels: updateLevels,
+    updatePain: updatePain,
+    updateProgress: updateProgress,
+    updateScore: updateScore,
     updateThreshold: updateThreshold,
     updateThresholds: updateThresholds
   },
 
-  mounted: function mounted() {
-    this.resetActiveDrop();
-
+  mounted: function onMounted() {
     console.info('OmegaPhase mounted', this);
   },
 
@@ -90,31 +96,69 @@ export default {
  * General methods
  */
 
-function onUpdateLoops() {
-  var randomMethod = _random(0, 1) ? 'increase' : 'decrease';
+function onCure(levelName) {
+  var level = this.levels[levelName];
 
-  this.levels.collagen.increase();
+  if (!level || !level.isBloomed) return;
 
-  if (this.levels.hypochlorousAcid.condition !== this.levels.hypochlorousAcid.threshold.max) {
-    this.levels.hypochlorousAcid[randomMethod]();
-  }
+  this.updateScore('levelCured');
 
-  console.info('OmegaPhase onUpdateLoops', this.levels.hypochlorousAcid, randomMethod);
+  this.levels[levelName].cure();
 }
 
-function resetActiveDrop() {
-  var dropCount = this.dropNames.length ? (this.dropNames.length - 1) : 0;
-  var index = _random(0, dropCount);
-
-  this.$store.dispatch('updateDropsActive', {
-    method: 'add',
-    name: this.dropNames[index]
-  });
+function onUpdateLoops() {
+  this.updateLevels();
+  this.updatePain();
+  this.updateProgress();
 }
 
 function startGameTimer() {
   this.$store.dispatch('resetGameTimer');
   this.$store.dispatch('startGameTimer');
+}
+
+function updateLevels() {
+  var randomLevelName = _buildRandomLevelName(Object.keys(this.levels));
+  var randomMethod = _buildRandomMethod();
+
+  this.$store.dispatch('updateLevel', {
+    levelKey: 'collagen',
+    method: 'increase'
+  });
+
+  if (this.levels.hypochlorousAcid.threshold.max > this.levels.hypochlorousAcid.condition) {
+    this.$store.dispatch('updateLevel', {
+      levelKey: 'hypochlorousAcid',
+      method: randomMethod
+    });
+  }
+
+  randomMethod = _buildRandomMethod();
+
+  if (this.levels[randomLevelName].threshold.max > this.levels[randomLevelName].condition) {
+    this.$store.dispatch('updateLevel', {
+      levelKey: randomLevelName,
+      method: randomMethod
+    });
+  }
+}
+
+function updatePain() {
+  var painCount = _countLevelBlooms(0, this.levels, Object.keys(this.levels));
+
+  this.$store.dispatch('updateGamePain', painCount);
+}
+
+function updateProgress() {
+  this.$store.dispatch('updateGameProgress', 1);
+}
+
+function updateScore(type) {
+  var points = this.points[type];
+
+  if (!points) return;
+
+  this.$store.dispatch('updatePlayerScore', points);
 }
 
 function updateThreshold(type, threshold) {
@@ -134,3 +178,31 @@ function updateThresholds() {
 /**
  * Private utility methods
  */
+
+function _buildRandomLevelName(levelNames) {
+  var index = _random(0, levelNames.length - 1);
+
+  console.log('randomLevelName', levelNames[index]);
+  return levelNames[index];
+}
+
+function _buildRandomMethod() {
+  var methods = ['decrease', 'increase', 'reset'];
+  var index = _random(0, methods.length - 1);
+
+  return methods[index];
+}
+
+function _countLevelBlooms(count, levels, [key, ...keys]) {
+  var level = levels[key];
+
+  if (!level) return count;
+
+  if (level.isBloomed) {
+    count = count + 1;
+  }
+
+  return keys.length
+    ? _countLevelBlooms(count, levels, keys)
+    : count;
+}

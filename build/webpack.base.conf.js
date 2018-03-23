@@ -38,6 +38,7 @@ module.exports = {
       '@': resolve('src'),
       '@classes': resolve('src/classes'),
       '@components': resolve('src/components'),
+      '@gsap': resolve('static/gsap'),
       '@stages': resolve('src/components/stages'),
       '@views': resolve('src/views')
     }

@@ -8,19 +8,19 @@ export default {
 
   computed: {
     ...mapState({
-      hiScore: function hiScore(state) {
+      hiScore: function mapHiScore(state) {
         return _padStart(state.score.hiScore.toString(), 4, '0');
       },
-      id: function id(state) {
+      id: function mapPlayerId(state) {
         return state.player.id;
       },
-      score: function score(state) {
+      score: function mapPlayerScore(state) {
         return _padStart(state.player.score.toString(), 4, '0');
       }
     })
   },
 
-  data: function data() {
+  data: function buildData() {
     return {
 
     }
@@ -30,7 +30,7 @@ export default {
 
   },
 
-  mounted: function mounted() {
+  mounted: function onMounted() {
     console.info('ScoreCard mounted', this);
   },
 

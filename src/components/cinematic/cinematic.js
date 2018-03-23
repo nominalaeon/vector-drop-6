@@ -8,23 +8,23 @@ export default {
 
   computed: {
     ...mapState({
-      stageName: function imgSrc(state) {
+      stageName: function mapStageName(state) {
         return _kebabCase(state.stages.active);
       }
     }),
 
-    imgSrc: function imgSrc() {
+    imgSrc: function buildImgSrc() {
       return `static/img/stage/${this.stageName}/${this.screen.img}`;
     }
   },
 
-  data: function data() {
+  data: function buildData() {
     return {
 
     };
   },
 
-  mounted: function mounted() {
+  mounted: function onMounted() {
     console.info('Cinemtic initialized', this);
   },
 

@@ -5,8 +5,10 @@
 
     <div class="vd6-ready-trays__active-drop">
       <active-drop
+        :active-selector="selector + '__tray--active'"
         :drop="drop"
         :key="dropId"
+        :update-drops="updateDrops"
         v-for="(drop, dropId) in activeDrops">
       </active-drop>
     </div>

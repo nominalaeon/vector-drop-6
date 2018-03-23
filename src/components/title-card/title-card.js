@@ -6,7 +6,7 @@ export default {
     width: Number
   },
 
-  data: function data() {
+  data: function buildData() {
     return {
       bg: '',
       fill: '',
@@ -19,7 +19,7 @@ export default {
     }
   },
 
-  mounted: function mounted() {
+  mounted: function onMounted() {
     Object.assign(this, selectElements(this.$el));
 
     console.info('TitleCard initialized', this);

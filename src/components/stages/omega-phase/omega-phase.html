@@ -7,14 +7,20 @@
     v-for="(screen, index) in stage.screens" >
   </cinematic>
 
-  <patient></patient>
+  <patient :levels="levels"></patient>
 
   <status
-    :painCount="threshold.pain"
-    :progressCount="threshold.progress">
+    :pain="pain"
+    :pain-count="threshold.pain"
+    :progress="progress"
+    :progress-count="threshold.progress">
   </status>
 
-  <ready-trays :count="threshold.readyTrays" :has-alchemist-perk="hasAlchemistPerk"></ready-trays>
+  <ready-trays
+    :has-alchemist-perk="hasAlchemistPerk"
+    :on-cure="onCure"
+    :update-score="updateScore">
+  </ready-trays>
 
   <levels :levels="levels"></levels>
 

@@ -11,18 +11,25 @@ export default class Drop {
   set isActive(isActive) {
     this._vm.isActive = !!isActive;
   }
+
+  get readyTray() {
+    return this._vm.readyTray || false;
+  }
+  set readyTray(readyTray) {
+    this._vm.readyTray = !!readyTray;
+  }
 };
 
 /**
  * Private methods
  */
 
-function _initProps(stage, props, [propName, ...propNames]) {
-  if (!propName) return stage;
+function _initProps(drop, props, [propName, ...propNames]) {
+  if (!propName) return drop;
 
-  stage[propName] = props[propName];
+  drop[propName] = props[propName];
 
   return propNames.length
-    ? _initProps(stage, props, propNames)
-    : stage;
+    ? _initProps(drop, props, propNames)
+    : drop;
 }

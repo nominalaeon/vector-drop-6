@@ -12,26 +12,30 @@ export default {
 function buildActions() {
   return {
     updateHiScore: function updateHiScore(context, score) {
-      // context.rootState.parent.hiScore ?
-      context.commit('updateHiScore', score);
+      context.commit('mutateHiScore', score);
     }
   }
 }
 
 function buildMutations() {
   return {
-    updateHiScore: updateHiScore
+    mutateHiScore: mutateHiScore
   };
 }
 
 function buildState() {
   return {
-    hiScore: 1000
+    hiScore: 1000,
+    points: {
+      'dropPlayed': 50,
+      'dropTrayed': 10,
+      'levelCured': 500
+    }
   };
 }
 
-function updateHiScore(state, score) {
-  state.hiScore = updateHiScore(state.hiScore, state.player.score);
+function mutateHiScore(state, score) {
+  state.hiScore = _updateHiScore(state.hiScore, score);
 }
 
 /**

@@ -11,7 +11,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  position: relative;
+  position: absolute;
 
   &::before {
     @include square($stage__dot__size);
