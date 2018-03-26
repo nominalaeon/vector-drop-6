@@ -8,8 +8,8 @@
 
 .vd6-stage {
     @include size($app__width, $app__height);
-    background-color: $color__blue;
-    background-image: radial-gradient($color__black, rgba($color__black, 0.9) 150%);
+    background-color: $color__blue--darkest;
+    background-image: radial-gradient(rgba($color__black, 0.25), $color__black 125%);
     position: relative;
 }
 

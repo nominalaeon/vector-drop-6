@@ -3,4 +3,4 @@
 
 <script lang="js" src="./vector-drop-6.js"></script>
 
-<style lang="scss" scoped src="./vector-drop-6.scss"></style>
+<style lang="scss" src="./vector-drop-6.scss"></style>

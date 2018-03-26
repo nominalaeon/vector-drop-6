@@ -8,6 +8,7 @@
   align-items: center;
   background-color: rgba($color__black, 0.5);
   display: flex;
+  font-size: 1.25em;
   justify-content: center;
   position: fixed;
   top: 0;
@@ -29,18 +30,6 @@
   justify-content: space-between;
   padding: 0 1em;
   text-transform: uppercase;
-  // width: $app__margin;
   width: $app__column * 2;
   max-width: $app__bp--sm * 0.5;
 }
-
-// @media screen and(min-width: $app__bp--md) {
-//   .vd6-score-board__container {
-//     width: $app__width * 0.75;
-//   }
-// }
-// @media screen and(min-width: $app__bp--lg) {
-//   .vd6-score-board__container {
-//     width: $app__width * 0.5;
-//   }
-// }

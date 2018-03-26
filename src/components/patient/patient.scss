@@ -8,17 +8,18 @@
   @include size($app__width, $app__height);
   align-items: center;
   display: flex;
-  grid-column: 1;
-  grid-row: 1;
+  grid-column: 1 / span 9;
+  grid-row: 1 / span 9;
   justify-content: center;
+  position: relative;
 }
 
-.vd6-patient__container {
+.vd6-patient__gurney {
   @include size($patient__width, $patient__height);
   position: relative;
 }
 .vd6-patient__body {
-  @include size($patient__width, $patient__height);
+  @include square(100%);
   border: 1px solid rgba(white, 0.2);
   position: absolute;
   top: 50%; left: 50%;

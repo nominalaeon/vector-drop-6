@@ -120,8 +120,8 @@ function onSnap(dir, delta) {
   targetHit.hasDrop = true;
 
   return dir === 'x'
-    ? targetHit.coor.left - (this.drop.coor.width / 2)
-    : targetHit.coor.top - this.drop.coor.height;
+    ? targetHit.coor.x - (this.drop.coor.width * 0.5)
+    : targetHit.coor.y - (this.drop.coor.height * 1.5);
 }
 
 function resetElement() {

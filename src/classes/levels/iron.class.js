@@ -3,7 +3,7 @@ import Level from '@classes/level.class';
 
 import _isNumber from 'lodash/isNumber';
 
-export default class Histamines extends Level {
+export default class Iron extends Level {
   constructor(props) {
     super(props);
   }

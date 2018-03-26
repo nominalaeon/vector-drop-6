@@ -4,9 +4,9 @@ import _camelCase from 'lodash/camelCase';
 import Ailment from '@classes/ailment.class';
 import CellCohesion from '@classes/levels/cell-cohesion.class';
 import Collagen from '@classes/levels/collagen.class';
-import Histamines from '@classes/levels/histamines.class';
 import HypochlorousAcid from '@classes/levels/hypochlorous-acid.class';
 import Interferon from '@classes/levels/interferon.class';
+import Iron from '@classes/levels/iron.class';
 import Lymphocytes from '@classes/levels/lymphocytes.class';
 
 export default {
@@ -80,16 +80,6 @@ function _buildDefaultLevels() {
         name: 'Collagen'
       }
     },
-    histamines: {
-      Class: Histamines,
-      props: {
-        ailment: new Ailment({ name: 'Rhinitis' }),
-        condition: 1,
-        critical: 'Some',
-        name: 'Histamines',
-        stable: 'None'
-      }
-    },
     hypochlorousAcid: {
       Class: HypochlorousAcid,
       props: {
@@ -104,6 +94,16 @@ function _buildDefaultLevels() {
         ailment: new Ailment({ name: 'Viroparesis' }),
         condition: 1,
         name: 'Interferon'
+      }
+    },
+    iron: {
+      Class: Iron,
+      props: {
+        ailment: new Ailment({ name: 'Anemioma' }),
+        condition: 1,
+        critical: 'Low',
+        name: 'Iron',
+        stable: 'Normal'
       }
     },
     lymphocytes: {

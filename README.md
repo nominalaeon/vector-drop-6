@@ -1,6 +1,6 @@
 # Vector Drop 6
 
-![enter image description here](static/img/stage/omega-phase/general.png)
+![Omega Phase](static/img/stage/omega-phase/general.png)
 
 ## Build Setup
 

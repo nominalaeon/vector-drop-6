@@ -89,9 +89,9 @@ function _buildDefaultDrops() {
       level: 'collagen',
       name: 'Citricol'
     },
-    histAWay: {
-      level: 'histamines',
-      name: 'Hist-A-Way'
+    feAsone: {
+      level: 'iron',
+      name: 'Fe-asone'
     },
     zeoBots: {
       level: 'cellCohesion',

@@ -4,9 +4,13 @@
 
 @import './scss/mixin/sizing';
 
+body {
+  background-color: $color__black;
+}
+
 .vector-drop-6 {
   @include size($app__width, $app__height);
-  background-color: rgba($color__black, 0.1);
+  background-color: $color__blue--darkest;
   color: $color__black;
   font-family: 'PT Mono', monospace;
   font-size: $font__size;
@@ -27,7 +31,6 @@
 .vd6-frame {
   @include size($app__width, $app__height);
   align-items: center;
-  background-color: $color__gray--darkest;
   display: flex;
   justify-content: center;
 }

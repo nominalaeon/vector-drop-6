@@ -1,6 +1,6 @@
 
 $app__height: 100vh;
-$app__width: 100vw;
+$app__width: $app__height * (3/4);
 
 $app__bp--sm: 375px;
 $app__bp--md: 786px;
@@ -28,7 +28,7 @@ $border__width: $app__height * 0.01;
  * Fonts
  */
 
-$font__size: calc(9px + (#{$app__height} * .001));
+$font__size: calc(10px + (#{$app__height} * .001));
 
 /**
  * Cinematic
