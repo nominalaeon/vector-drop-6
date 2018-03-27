@@ -1,6 +1,6 @@
 
-$app__height: 100vh;
-$app__width: $app__height * (3/4);
+$app__width: 100vmin;
+$app__height: $app__width * (3/4);
 
 $app__bp--sm: 375px;
 $app__bp--md: 786px;
@@ -49,13 +49,13 @@ $grid__height: $app__height;
  */
 
 $patient__width: $app__width - ($app__column * 4);
-$patient__height: $patient__width * 1.5;
+$patient__height: $app__height - ($app__row * 2); //$patient__width * 1.5;
 
 /**
  * Stage
  */
 
-$stage__dot__size: $app__column * 0.75;
+$stage__dot__size: $app__row * 0.75;
 
 /**
  * Title Card

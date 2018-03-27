@@ -32,7 +32,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.json', '.scss', '.vue'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
@@ -40,7 +40,8 @@ module.exports = {
       '@components': resolve('src/components'),
       '@gsap': resolve('static/gsap'),
       '@stages': resolve('src/components/stages'),
-      '@views': resolve('src/views')
+      '@views': resolve('src/views'),
+      '@scss': resolve('src/scss')
     }
   },
   module: {

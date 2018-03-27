@@ -1,8 +1,8 @@
 
-@import '../../scss/var/colors';
-@import '../../scss/var/dimensions';
+@import '~@scss/var/colors';
+@import '~@scss/var/dimensions';
 
-@import '../../scss/mixin/sizing';
+@import '~@scss/mixin/sizing';
 
 .vd6-frame {
   @include size($app__width, $app__height);

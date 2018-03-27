@@ -1,8 +1,8 @@
 
-@import '../../scss/var/_colors.scss';
-@import '../../scss/var/_dimensions.scss';
+@import '~@scss/var/_colors.scss';
+@import '~@scss/var/_dimensions.scss';
 
-@import '../../scss/mixin/_sizing.scss';
+@import '~@scss/mixin/_sizing.scss';
 
 .vd6-score-board {
   align-items: center;
@@ -10,17 +10,18 @@
   display: flex;
   font-size: 1.25em;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: $app__width;
 }
 
 .vd6-score-board__container {
   align-items: center;
-  color: $color__white;
+  color: rgba($color__white, 0.2);
   display: flex;
   height: 2em;
   justify-content: space-between;
+  padding: 0 $app__column;
   width: $app__width;
   max-width: $app__bp--md;
 }

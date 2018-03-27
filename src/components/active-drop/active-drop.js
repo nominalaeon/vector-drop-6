@@ -91,13 +91,14 @@ function detectHit() {
   var readyTrayHit = false;
 
   if (patientHit) {
-    // if (!this.readyTray) return false;
-
     this.updateDrops(this.drop.id, this.readyTray.id, true);
+
     return patientHit;
   }
 
-  if (this.readyTray) return this.readyTray;
+  if (this.readyTray) {
+    return this.readyTray;
+  }
 
   readyTrayHit = _detectHit(data, false, this.readyTrayTargets, Object.keys(this.readyTrayTargets));
 
@@ -119,9 +120,7 @@ function onSnap(dir, delta) {
 
   targetHit.hasDrop = true;
 
-  return dir === 'x'
-    ? targetHit.coor.x - (this.drop.coor.width * 0.5)
-    : targetHit.coor.y - (this.drop.coor.height * 1.5);
+  return targetHit.coor[dir] - this.drop.coor[dir];
 }
 
 function resetElement() {

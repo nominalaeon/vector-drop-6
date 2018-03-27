@@ -1,8 +1,8 @@
 
-@import '../../scss/var/_colors.scss';
-@import '../../scss/var/_dimensions.scss';
+@import '~@scss/var/_colors.scss';
+@import '~@scss/var/_dimensions.scss';
 
-@import '../../scss/mixin/_sizing.scss';
+@import '~@scss/mixin/_sizing.scss';
 
 .vd6-active-drop {
   @include size($app__column, $app__row);

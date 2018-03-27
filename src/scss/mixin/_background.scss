@@ -1,0 +1,5 @@
+
+@mixin radial-overlay($bg, $rad-grad) {
+  background-color: $bg;
+  background-image: radial-gradient(50% 25%, rgba($rad-grad, 0.25), rgba($rad-grad, 1) 125%);
+}
