@@ -36,9 +36,10 @@ body {
 .vd6-frame {
   @include size($app__width, $app__height);
   align-items: center;
-  border: 1px solid rgba($color__white, 0.05);
+  border: ($border__width * 0.25) solid rgba($color__white, 0.05);
   border-radius: $app__column;
   display: flex;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 }
