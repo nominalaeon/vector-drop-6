@@ -2,14 +2,14 @@
 import Vue  from 'vue';
 import Vuex from 'vuex';
 
-import mDrops       from './drops.module';
-import mGame        from './game.module';
-import mLevels      from './levels.module';
-import mPatient     from './patient.module';
-import mPlayer      from './player.module';
-import mReadyTrays  from './ready-trays.module';
-import mScore       from './score.module';
-import mStages      from './stages.module';
+import storeDrops       from './drops.store';
+import storeGame        from './game.store';
+import storeLevels      from './levels.store';
+import storePatient     from './patient.store';
+import storePlayer      from './player.store';
+import storeReadyTrays  from './ready-trays.store';
+import storeScore       from './score.store';
+import storeStages      from './stages.store';
 
 Vue.use(Vuex);
 
@@ -30,14 +30,14 @@ function buildActions() {
 
 function buildModules() {
   return {
-    drops:      mDrops,
-    game:       mGame,
-    levels:     mLevels,
-    patient:    mPatient,
-    player:     mPlayer,
-    readyTrays: mReadyTrays,
-    score:      mScore,
-    stages:     mStages
+    drops:      storeDrops,
+    game:       storeGame,
+    levels:     storeLevels,
+    patient:    storePatient,
+    player:     storePlayer,
+    readyTrays: storeReadyTrays,
+    score:      storeScore,
+    stages:     storeStages
   };
 }
 

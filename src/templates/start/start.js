@@ -1,14 +1,14 @@
 
 import Vue        from 'vue';
 
-import cTitleCard from '@components/title-card/title-card.vue';
-import cTitleMenu from '@components/title-menu/title-menu.vue';
+import patternTitleCard from '@patterns/title-card/title-card.vue';
+import patternTitleMenu from '@patterns/title-menu/title-menu.vue';
 
 export default {
   name: 'StartComponent',
   components: {
-    'title-card': cTitleCard,
-    'title-menu': cTitleMenu
+    'title-card': patternTitleCard,
+    'title-menu': patternTitleMenu
   },
 
   data: function buildData() {

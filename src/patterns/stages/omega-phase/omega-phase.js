@@ -3,23 +3,23 @@ import { mapGetters, mapState } from 'vuex';
 
 import _random from 'lodash/random';
 
-// import cActiveDrop  from '@components/active-drop/active-drop.vue';
-import cCinematic   from '@components/cinematic/cinematic.vue';
-import cLevels      from '@components/levels/levels.vue';
-import cPatient     from '@components/patient/patient.vue';
-import cReadyTrays  from '@components/ready-trays/ready-trays.vue';
-import cStatus      from '@components/status/status.vue';
+// import patternActiveDrop  from '@patterns/active-drop/active-drop.vue';
+import patternCinematic   from '@patterns/cinematic/cinematic.vue';
+import patternLevels      from '@patterns/levels/levels.vue';
+import patternPatient     from '@patterns/patient/patient.vue';
+import patternReadyTrays  from '@patterns/ready-trays/ready-trays.vue';
+import patternStatus      from '@patterns/status/status.vue';
 
 export default {
   name: 'OmegaPhase',
 
   components: {
-    // 'active-drop': cActiveDrop,
-    'cinematic': cCinematic,
-    'levels': cLevels,
-    'patient': cPatient,
-    'ready-trays': cReadyTrays,
-    'status': cStatus
+    // 'active-drop': patternActiveDrop,
+    'cinematic': patternCinematic,
+    'levels': patternLevels,
+    'patient': patternPatient,
+    'ready-trays': patternReadyTrays,
+    'status': patternStatus
   },
 
   computed: {

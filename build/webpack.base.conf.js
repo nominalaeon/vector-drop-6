@@ -37,11 +37,14 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       '@classes': resolve('src/classes'),
-      '@components': resolve('src/components'),
+      '@elements': resolve('src/elements'),
       '@gsap': resolve('static/gsap'),
-      '@stages': resolve('src/components/stages'),
-      '@views': resolve('src/views'),
-      '@scss': resolve('src/scss')
+      '@patterns': resolve('src/patterns'),
+      '@router': resolve('src/router'),
+      '@stages': resolve('src/patterns/stages'),
+      '@store': resolve('src/store'),
+      '@scss': resolve('src/scss'),
+      '@templates': resolve('src/templates')
     }
   },
   module: {

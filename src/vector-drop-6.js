@@ -2,13 +2,13 @@
 import { mapGetters } from 'vuex';
 import { mapState } from 'vuex';
 
-import cEffectScreen  from './components/effect-screen/effect-screen.vue';
-import cScoreBoard    from './components/score-board/score-board.vue';
+import patternEffectScreen  from '@patterns/effect-screen/effect-screen.vue';
+import patternScoreBoard    from '@patterns/score-board/score-board.vue';
 
 export default {
   components: {
-    'effect-screen': cEffectScreen,
-    'score-board': cScoreBoard
+    'effect-screen': patternEffectScreen,
+    'score-board': patternScoreBoard
   },
 
   data: function buildData() {

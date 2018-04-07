@@ -2,9 +2,9 @@
 import Vue                from 'vue';
 import Router             from 'vue-router';
 
-import vStage             from '@views/stage/v-stage.vue';
-import vStageSelect       from '@views/stage-select/v-stage-select.vue';
-import vStart             from '@views/start/v-start.vue';
+import templateStage       from '@templates/stage/stage.vue';
+import templateStageSelect from '@templates/stage-select/stage-select.vue';
+import templateStart       from '@templates/start/start.vue';
 
 Vue.use(Router);
 
@@ -17,19 +17,19 @@ let redirectRoute = {
 let stageRoute = {
   path: '/stage/:stage',
   name: 'Stage',
-  component: vStage
+  component: templateStage
 };
 
 let stageSelectRoute = {
   path: '/stage-select',
   name: 'Stage Select',
-  component: vStageSelect
+  component: templateStageSelect
 };
 
 let startRoute = {
   path: '/',
   name: 'Start',
-  component: vStart
+  component: templateStart
 };
 
 let routerOptions = {

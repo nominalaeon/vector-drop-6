@@ -3,16 +3,16 @@ import { mapState }   from 'vuex';
 
 import Stage        from '@classes/stage.class';
 
-import cGridOverlay from '@components/grid-overlay/grid-overlay.vue';
+import patternGridOverlay from '@patterns/grid-overlay/grid-overlay.vue';
 
-import sOmegaPhase  from '@stages/omega-phase/omega-phase.vue';
+import stageOmegaPhase  from '@stages/omega-phase/omega-phase.vue';
 
 export default {
   name: 'StageComponent',
 
   components: {
-    'grid-overlay': cGridOverlay,
-    'omega-phase': sOmegaPhase
+    'grid-overlay': patternGridOverlay,
+    'omega-phase': stageOmegaPhase
   },
 
   computed: {

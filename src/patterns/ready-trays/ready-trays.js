@@ -4,15 +4,15 @@ import { mapState }   from 'vuex';
 
 import _random from 'lodash/random';
 
-import cActiveDrop  from '@components/active-drop/active-drop.vue';
-import cReadyTray   from '@components/ready-tray/ready-tray.vue';
+import patternActiveDrop  from '@patterns/active-drop/active-drop.vue';
+import patternReadyTray   from '@patterns/ready-tray/ready-tray.vue';
 
 export default {
   name: 'ReadyTrays',
 
   components: {
-    'active-drop': cActiveDrop,
-    'ready-tray': cReadyTray
+    'active-drop': patternActiveDrop,
+    'ready-tray': patternReadyTray
   },
 
   computed: {

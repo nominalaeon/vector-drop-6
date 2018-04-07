@@ -2,6 +2,7 @@
 <div class="vd6-levels">
   <div class="vd6-levels__level"
     :class="level.classList"
+    :data-condition="level.conditionLabel"
     v-for="(level, levelName) in levels">
     <p class="vd6-levels__label"><span>{{level.name}}</span><br/>{{level.label}}</p>
   </div>

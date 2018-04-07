@@ -42,7 +42,7 @@
   }
 }
 
-// Level by Condition
+// Level Condition defaults
 
 .vd6-levels__level--bloom {
   &::before {
@@ -60,7 +60,7 @@
   }
 }
 
-// Level by Name
+// Level Condition by Name
 
 .vd6-levels__level--cell-cohesion {
   transition: letter-spacing $app__ani-dur ease-in-out;

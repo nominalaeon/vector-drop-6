@@ -1,8 +1,8 @@
 
 import Vue from 'vue';
 
-import router from './router/router';
-import store  from './store/store';
+import Router from '@router/router';
+import Store  from '@store/store';
 
 import VectorDrop6 from './VectorDrop6.vue';
 
@@ -13,7 +13,7 @@ new Vue({
   components: {
     VectorDrop6: VectorDrop6
   },
-  router: router,
-  store: store,
+  router: Router,
+  store: Store,
   template: '<VectorDrop6></VectorDrop6>'
 });
