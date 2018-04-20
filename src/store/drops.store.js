@@ -50,7 +50,6 @@ function addActiveDrop(state, key) {
 }
 
 function removeActiveDrop(state, dropId) {
-  console.log('removeActiveDrop', dropId);
   Vue.delete(state.active, dropId);
 }
 

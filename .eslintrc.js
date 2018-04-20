@@ -11,6 +11,13 @@ module.exports = {
   },
   // https://github.com/standard/standard/blob/master/docs/RULES-en.md
   extends: 'standard',
+  globals: {
+    Back: true,
+    TimelineLite: true,
+    TimelineMax: true,
+    TweenLite: true,
+    TweenMax: true
+  },
   // required to lint *.vue files
   plugins: [
     'html'
@@ -37,6 +44,7 @@ module.exports = {
     'no-var-keyword': 'off',
     'object-literal-key-quotes': 'off',
     'object-literal-shorthand': 'off',
+    'object-property-newline': 'off',
     'prefer-const': 'off',
     'semi': 'off',
     'space-before-function-paren': 'off',

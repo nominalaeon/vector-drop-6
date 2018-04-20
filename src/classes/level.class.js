@@ -8,6 +8,8 @@ export default class Level {
   constructor(props) {
     var level = _initProps({ _vm: {} }, props, Object.keys(props));
     Object.assign(this, level);
+
+    console.info('Level Class', this.name, this);
   }
 
   get classList() {
@@ -36,14 +38,37 @@ export default class Level {
     this._vm.critical = critical;
   }
 
+  get innerSVG() {
+    return this._vm.innerSVG || '';
+  }
+  set innerSVG(innerSVG) {
+    this._vm.innerSVG = innerSVG;
+  }
+
   get isBloomed() {
     return this.conditionLabel === 'bloom';
+  }
+  get isCritical() {
+    return this.conditionLabel === 'critical';
+  }
+  get isStable() {
+    return this.conditionLabel === 'stable';
   }
 
   get label() {
     return this.condition === this.threshold.max
       ? this.ailment.name
       : this[this.conditionLabel];
+  }
+
+  get selector() {
+    return {
+      root: 'vd6-levels__level',
+      // Iron
+      cell: 'blood-cell',
+      heart: 'heart',
+      membrane: 'membrane'
+    };
   }
 
   get status() {
@@ -70,12 +95,26 @@ export default class Level {
     };
   }
 
+  /**
+   * General methods
+   */
+
+  animate() {}
+
   cure() {
     this.reset();
   }
 
+  decrease() {}
+
+  increase() {}
+
   reset() {
     this.condition = this.threshold.min;
+  }
+
+  restartAnimation(tl) {
+    tl.invalidate().restart();
   }
 };
 

@@ -32,7 +32,6 @@ function buildActions() {
 function buildMutations() {
   return {
     mutateLevel: function mutateLevel(state, data) {
-      console.log('mutateLevel', state, data.levelKey, data.method);
       state.all[data.levelKey][data.method]();
     }
   };
@@ -53,6 +52,7 @@ function buildState() {
 function _buildLevels(levels, defaultLevels, [levelName, ...levelNames]) {
   var level = defaultLevels[levelName];
   levels[levelName] = new level.Class(level.props);
+  levels[levelName].keyName = levelName;
 
   return levelNames.length
     ? _buildLevels(levels, defaultLevels, levelNames)

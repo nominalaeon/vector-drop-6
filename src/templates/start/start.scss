@@ -4,12 +4,3 @@
 
 @import '~@scss/mixin/background';
 @import '~@scss/mixin/_sizing.scss';
-
-.vd6-start {
-  @include radial-overlay($color__rose, $color__black);
-  @include size($app__width, $app__height);
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}

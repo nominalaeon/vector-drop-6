@@ -56,7 +56,7 @@ function selectElements() {
  */
 
 function _buildPing(el) {
-  var tl = new TimelineLite({ repeat: false });
+  var tl = new TimelineMax({ repeat: false });
 
   tl.to(el, 0.25, {
     ease: Elastic.easeOut.config(0.75, 0.25),

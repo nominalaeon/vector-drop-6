@@ -17,47 +17,36 @@
 
 .vd6-levels__label {
   position: absolute;
-  top: 50%; left: 50%;
+  bottom: 0;
   text-align: center;
-  transform: translateX(-50%) translateY(-50%);
-
-  span {
-    white-space: nowrap;
-  }
+  white-space: nowrap;
 }
 
 .vd6-levels__level {
-  @include size($app__column, $app__row);
+  @include square($app__row);
   align-items: center;
   display: flex;
   justify-content: center;
   position: relative;
-
-  &::before {
-    @include square($stage__dot__size);
-    border: 1px solid rgba(orange, 0.2);
-    border-radius: 50%;
-    content: '';
-    display: block;
-  }
 }
 
 // Level Condition defaults
 
 .vd6-levels__level--bloom {
-  &::before {
-    border-color: rgba(red, 0.2);
-  }
+  color: rgba(red, 0.2);
 }
 .vd6-levels__level--critical {
-  &::before {
-    border-color: rgba(yellow, 0.2);
-  }
+  color: rgba(yellow, 0.2);
 }
 .vd6-levels__level--stable {
-  &::before {
-    border-color: rgba(green, 0.2);
-  }
+  color: rgba(green, 0.2);
+}
+
+.vd6-levels__svg {
+  height: 100%;
+  max-height: 100%;
+  visibility: hidden;
+  width: 100%;
 }
 
 // Level Condition by Name
@@ -70,5 +59,54 @@
   }
   &.vd6-levels__level--critical {
     letter-spacing: 0.15em;
+  }
+
+  .membrane--inner {
+    fill: $color__rose--dark;
+    stroke: $color__rose--darker;
+  }
+
+  .membrane--outer {
+    fill-opacity: 0.2;
+    stroke-width: 0.5;
+
+    &.membrane--critical {
+      visibility: hidden;
+    }
+    &.membrane--stable {
+      fill: $color__rose--dark;
+      stroke: $color__rose--darker;
+      visibility: hidden;
+
+      &:first-child {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.vd6-levels__level--iron {
+  .blood-cell {
+    path {
+      fill: rgba($color__rose, 0.2);
+      stroke: $color__rose--darker;
+      stroke: rgba(#000, 0.25);
+    }
+  }
+
+  .heart--inner {
+    fill: $color__rose--darker;
+    stroke: $color__rose--dark;
+    visibility: hidden;
+
+    &:first-child {
+      visibility: visible;
+    }
+  }
+
+  .heart--outer {
+    fill: rgba($color__rose--darker, 0.2);
+    stroke: $color__rose--darker;
+    stroke-width: 0.5;
   }
 }

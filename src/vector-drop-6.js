@@ -21,7 +21,7 @@ export default {
   },
 
   mounted: function onMounted() {
-    console.log('VectorDrop6 initialized', this);
+    console.info('VectorDrop6 initialized', this);
   }
 };
 

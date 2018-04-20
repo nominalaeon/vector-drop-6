@@ -16,9 +16,11 @@ body {
 .vector-drop-6 {
   @include size($app__width, $app__height);
   background-color: $color__blue--darkest;
+  border-radius: $app__column;
   color: $color__black;
   font-family: 'PT Mono', monospace;
   font-size: $font__size;
+  overflow: hidden;
   position: relative;
 
   /**
@@ -42,4 +44,9 @@ body {
   justify-content: center;
   overflow: hidden;
   position: relative;
+}
+
+.vd6-frame--start {
+  @include radial-overlay($color__rose, $color__black);
+  flex-direction: column;
 }

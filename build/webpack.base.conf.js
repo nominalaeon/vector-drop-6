@@ -44,6 +44,7 @@ module.exports = {
       '@stages': resolve('src/patterns/stages'),
       '@store': resolve('src/store'),
       '@scss': resolve('src/scss'),
+      '@services': resolve('src/services'),
       '@templates': resolve('src/templates')
     }
   },

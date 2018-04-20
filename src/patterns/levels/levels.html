@@ -4,6 +4,15 @@
     :class="level.classList"
     :data-condition="level.conditionLabel"
     v-for="(level, levelName) in levels">
-    <p class="vd6-levels__label"><span>{{level.name}}</span><br/>{{level.label}}</p>
+
+    <svg class="vd6-levels__svg"
+      preserveAspectRatio="xMidYMid slice"
+      viewBox="0 0 100 100"
+      width="100" height="100" >
+      <g v-html="level.innerSVG"></g>
+    </svg>
+
+    <p class="vd6-levels__label">{{level.name}}</p>
+
   </div>
 </div>

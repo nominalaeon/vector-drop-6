@@ -182,7 +182,6 @@ function updateThresholds() {
 function _buildRandomLevelName(levelNames) {
   var index = _random(0, levelNames.length - 1);
 
-  console.log('randomLevelName', levelNames[index]);
   return levelNames[index];
 }
 
